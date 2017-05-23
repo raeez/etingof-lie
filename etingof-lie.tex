@@ -126,15 +126,17 @@
 \setlength\textwidth{15.5cm}
 \begin{document}
 
-\title{18.747: Infinite-dimensional Lie algebras (Spring term 2012 at MIT)}
-\author{Pavel Etingof\\Scribed by Darij Grinberg\\with edits by Raeez Lorgat}
-\date{Version 0.44 (\today) (not proofread!)}
+\title{\textbf{18.747}: \textsc{Infinite-dimensional Lie algebras Spring of
+2012 and 2016 at MIT}}
+\author{Pavel Etingof\\Scribed by Darij Grinberg\\Under revision by Raeez Lorgat}
+\date{Version 0.45 (\today) (\textsc{not proofread}!)}
 \maketitle
 \tableofcontents
 
 \begin{noncompile}
-\textbf{TO-DO LIST:}
+\textbf{TODO LIST:}
 
+% TODO
 bilinear form on kac-moody and more generally.
 
 multisolitons.
@@ -142,59 +144,17 @@ multisolitons.
 Japanese cocycle proofs.
 \end{noncompile}
 
-\subsection{Version notes}
+\subsection{Notes on the notes}
 
-\textbf{Only Chapters 1 and 2 of these notes are currently anywhere near
-completion.} Chapter 3 is done in parts, but some material is still sketchy
-and/or wrong. The beginning of Chapter 4 is done, but the rest is still an
-unusable mess.
+Chapters 1 and 2 of these notes are the most complete,
+ due to Darij Grinberg. Chapters 3 and 4 are a mess, and are to an
+  even greater extent potentially incorrect and almost certainly unusable;
+  Though this is yet to be made publically available, Raeez has made some
+  progress correcting this; email him at \url{root \left[\alpha \tau \right] raeez \left[\delta
+  \wedge\tau\right] com}.
 
-These notes are mostly based on what is being said and written on the
-blackboard in the lectures, and less so on Pavel Etingof's handwritten notes
-posted on \newline\texttt{\url{http://www-math.mit.edu/~etingof/}} . They
-cover less material than Etingof's handwritten notes, but are more detailed in
-what they do cover.
-
-Thanks to Pavel Etingof for his patience in explaining me things until I
-actually understand them. Thanks to Dorin Boger for finding mistakes.
-
-\subsection{Remark on the level of detail}
-
-\begin{vershort}
-This is the ``brief'' version of the lecture notes, meaning that there is a
-more detailed one, which can be obtained by replacing\newline\texttt{%
-%TCIMACRO{\TEXTsymbol{\backslash}}%
-%BeginExpansion
-$\backslash$%
-%EndExpansion
-excludecomment\{verlong\}}\newline\texttt{%
-%TCIMACRO{\TEXTsymbol{\backslash}}%
-%BeginExpansion
-$\backslash$%
-%EndExpansion
-includecomment\{vershort\}}\newline by\newline\texttt{%
-%TCIMACRO{\TEXTsymbol{\backslash}}%
-%BeginExpansion
-$\backslash$%
-%EndExpansion
-includecomment\{verlong\}}\newline\texttt{%
-%TCIMACRO{\TEXTsymbol{\backslash}}%
-%BeginExpansion
-$\backslash$%
-%EndExpansion
-excludecomment\{vershort\}}\newline in the preamble of the LaTeX sourcecode
-and then compiling to PDF. That detailed version, however, is not recommended,
-since it differs from the brief one mostly in boring computations and
-straightforward arguments being carried out rather than sketched. The amount
-of detail in the brief version is usually enough for understanding (unless it
-is a part of the lecture I didn't understand myself and just copied from the
-blackboard; but in that case the detailed version is of no help either). There
-is currently a large number of proofs which are only sketched in either version.
-\end{vershort}
-
-\begin{verlong}
-This is the detailed version of the lecture notes.
-\end{verlong}
+It is suggested that one keeps open a copy of Pasha Etingof's hand-written notes
+\newline\texttt{\url{http://www-math.mit.edu/~etingof/}} alongside these.}
 
 \subsection{Introduction}
 
