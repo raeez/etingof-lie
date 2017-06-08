@@ -140,6 +140,11 @@ pdf:
 	$(BUILDTEX)
 	$(BUILDTEX)
 	$(BUILDTEX)
+	make index
+	$(BUILDTEX)
+	$(BUILDTEX)
+	$(BUILDTEX)
+
 
 index:
 	makeindex $(OUTDIR)/$(TEXMAIN).nlo -s nomencl.ist -o $(OUTDIR)/$(TEXMAIN).nls
