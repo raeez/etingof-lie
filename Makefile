@@ -17,7 +17,7 @@ VIEWPDF    :=open -a $(PDFVIEWER)
 VIEWHTML   :=open -a $(HTMLVIEWER)
 
 # -- target dirs for generated html/pdf files
-INSTALLDIR :=$(PROJ)/www/raeez.com/research/wip
+INSTALLDIR :=$(PROJ)/www/raeez.com/notes/wip
 OUTDIR:=out
 
 # -- pdf config
@@ -159,12 +159,16 @@ tar:
 install: install-pdf install-html install-tar
 
 install-pdf:
+	-$(MKDIR) $(INSTALLDIR)/$(TEXMAIN)
+	-cd $(INSTALLDIR)/$(TEXMAIN); $(KILL) *.pdf; cd -
+	cd $(OUTDIR); $(CP) $(TEXMAIN).pdf $(INSTALLDIR)/$(TEXMAIN)/; cd -
+	cd $(PROJ)/www/raeez.com; make update-mathematica
 
 install-html:
 	-$(MKDIR) $(INSTALLDIR)/$(TEXMAIN)
 	-cd $(INSTALLDIR)/$(TEXMAIN); $(KILL) *.css *.js *.png *.js; cd -
 	cd $(OUTDIR); $(CP) *.html *.css *.js *.png $(INSTALLDIR)/$(TEXMAIN)/; cd -
-	cd $(PROJ)/www/raeez.com; make update-research
+	cd $(PROJ)/www/raeez.com; make update-mathematica
 
 # ----------------------------------------------------------------------------
 # -- clean
