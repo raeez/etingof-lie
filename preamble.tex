@@ -1,0 +1,271 @@
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% project modularity %%
+%%
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import} % more elegant than \input for standalone documents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% design, formatting and fonts %%
+%%
+
+%\usepackage[titletoc]{appendix}
+%\usepackage[toc,page]{appendix}
+% \usepackage{amsmath,amssymb,amsthm,amsrefs}
+% \usepackage{mathtools} % TODO find better for \coloneqq (':=')
+% \usepackage{mathpazo}
+% \usepackage{inconsolata}
+% %\usepackage{euler}
+% \usepackage{epigraph} % TODO how does this work
+% \usepackage{showkeys} % TODO http://texdoc.net/texmf-dist/doc/latex/tools/showkeys.pdf
+% \usepackage{etoolbox}
+% \usepackage{ifthen} % one route to argument overloading
+%
+% %%%%%%%%%%%%%%%%%%
+% %% Nomenclature %%
+% %%
+\usepackage[intoc]{nomencl}
+% \usepackage{nomencl}
+%\makenomenclature
+%
+% %%%%%%%%%%%%%%
+% %% graphics %%
+% %%
+% %% TODO https://www.sharelatex.com/learn/Inserting_Images
+% \usepackage{graphicx}
+% \usepackage{float}
+% \graphicspath{{graphics/}{../graphics/}} % relative to both / and sections/
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% TODO learn correct usage of tikz
+% %% tikz
+% \usepackage{tikz-cd}
+% %% Functions
+% %% \begin{tikzcd}[column sep= small,row sep=0ex]
+% %%     M_f \colon \pi_1(S \smallsetminus \{y_1, \dots, y_n\}, y) \arrow[r]& \Bij(f^{-1}(y)) \\
+% %%    \gamma \arrow[r, mapsto]                                   & M_f(\gamma) = \sigma_{\gamma}^{-1}
+% %% \end{tikzcd}
+% %%
+% %% \begin{align*}
+% %%   M_f \colon \pi_1(S \smallsetminus \{y_1, \dots, y_n\}, y) & \longrightarrow \Bij(f^{-1}(y)) \\
+% %%   \gamma & \longmapsto M_f(\gamma) = \sigma_\gamma^{-1}
+% %% \end{align*}
+% %%
+% %% Or this:\medskip
+% %%
+% %% Let $ S' =S \smallsetminus \{y_1, \dots, y_n\} $. Define
+% %% $ \begin{aligned}[t]
+% %% M_f \colon \pi_1(S', y) &\longrightarrow \Bij(f^{-1}(y)) \\
+% %% \gamma &\longmapsto M_f(\gamma) = \sigma_\gamma^{-1}
+% %% \end{aligned} $
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% TODO find a better way to handle subsections %%
+% %% - glg.tex file inclusions
+% %% - introduce nomenclature db using section tags + groups
+% %% - standardize labels throughout project
+% %% - place the above into an array and autogen glg.tex
+% %% - glg.tex file inclusions
+% %% - introduce nomenclature db using section tags + groups
+% %% - standardize labels throughout project
+%
+% % \usepackage{etoolbox}
+% %  \renewcommand\nomgroup[1]{%
+% %    \item[\bfseries
+% %      \ifstrequal{#1}{\leca}{\lecatitle}{%
+% %      \ifstrequal{#1}{\lecb}{\lecbtitle}{%
+% %      \ifstrequal{#1}{\lecc}{\lecctitle}{%
+% %      }}}%
+% %   ]}
+% %%%%%%%%%%%%%%%%%%%%%%%
+% %% Table of contents %%
+% %%
+% %% TODO
+% %% - fix nomenclature
+% %%
+% %% \makeatletter
+% %% \def\thenomenclature{%
+% %%   \section*{\nomname}
+% %%   \if@intoc\addcontentsline{toc}{section}{\nomname}\fi%
+% %% \nompreamble
+% %% \list{}{%
+% %% \labelwidth\nom@tempdim
+% %% \leftmargin\labelwidth
+% %% \advance\leftmargin\labelsep
+% %% \itemsep\nomitemsep
+% %% \let\makelabel\nomlabel}}
+% %% \makeatother
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% Formatting / Display %%
+% %%
+% % \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% \numberwithin{equation}{section}
+% % TODO understand what this does
+% % (something like number equations within sections)
+%
+% %%%%%%%%%%%%%
+% %% urls/links
+% % \usepackage{hyperref}
+%
+% % examples
+% % c.f. \hyperref[mainlemma1]{lemma \ref*{mainlemma} }.
+% % take a look at my website \url{http://raeez.com}
+% % it never hurts to \href{http://wiki.org/RTFM}{RTFM}
+% % I can be reached at
+% % \href{mailto:this_is_a_false_addr@raeez.com}{this\_is\_a\_false\_addr@raeez.com}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% Theorem Environments %%
+% %%
+% \newtheorem{thm}{Theorem}[section]
+% %\newtheorem{prop}[thm]{Proposition}
+% %\newtheorem{lem}[thm]{Lemma}
+% \newtheorem{cor}[thm]{Corollary}
+% \theoremstyle{remark}
+% \newtheorem{rmk}[thm]{Remark}
+% \theoremstyle{definition}
+% \newtheorem{defn}[thm]{Definition}
+% \newtheorem{ex}[thm]{Example}
+% \newtheorem{exc}[thm]{Exercise}
+% \newtheorem{conj}[thm]{Conjecture}
+%
+% %%%%%%%%%%%%%%%%%%
+% %% Nomenclature %%
+% %%
+% %% TODO figure out better solution
+% %% https://tex.stackexchange.com/questions/361373/nomenclature-entry-in-toc-not-indented-like-a-chapter/361376
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %% Modify nomenclature generation %%
+% %% 1. SI Units
+% %% 2. titled groups
+% %% 3. enforce manual order
+%
+% %% 1. Enable SI units
+% %% \usepackage{siunitx}
+% %% \sisetup{
+% %% inter-unit-product=\ensuremath{{}\cdot{}},
+% %% per-mode=symbol
+% %% }
+% %% \nc{\nomunit}[1]{\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+%
+% %% c.f. https://tex.stackexchange.com/questions/118114/commands-that-may-take-a-variable-number-of-arguments
+%
+%
+% %% 2. titled groups
+%
+% %% TODO 3. manual ordering
+%
+% %% TODO why is % often used before a newline?
+%
+% %% TIP wrap long descriptions in a \parbox e.g.
+% %% \nm[x]{$x$}{\parbox[t]{.75\textwidth}{Unknown variable with a very very
+% %% very very very very very very long description}\nomunit{\si{\second}}}
+%
+% %% The following implements grouping in the nomenclature preamble
+% %% c.f. 1. https://tex.stackexchange.com/questions/166556/how-to-make-a-clean-and-grouped-nomenclature-list
+% %%      2. https://tex.stackexchange.com/questions/310128/grouped-nomenclature
+% %%      3. https://tex.stackexchange.com/questions/318850/grouping-nomenclature-elements
+% %%      4. https://www.sharelatex.com/learn/Nomenclatures
+%
+% %% \begin{document}
+% %% \mbox{}
+% %%
+% %% \nm[A, 02]{$c$}{Speed of light in a vacuum inertial system}
+% %% \nm[A, 03]{$h$}{Plank Constant}
+% %% \nm[A, 01]{$g$}{Gravitational Constant}
+% %% \nm[B, 03]{$\mathbb{R}$}{Real Numbers}
+% %% \nm[B, 02]{$\mathbb{C}$}{Complex Numbers}
+% %% \nm[B, 01]{$\mathbb{H}$}{Octonions}
+% %% \nm[C]{$V$}{Constant Volume}
+% %% \nm[C]{$\rho$}{Friction Index}
+\usepackage[all,cmtip]{xy}
+\usepackage{lscape}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{amsmath}
+\usepackage{comment}
+\usepackage{amsthm}
+\usepackage{pdflscape}
+\usepackage{hyperref}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Thursday, June 09, 2016 23:26:41}
+%TCIDATA{SuppressPackageManagement}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\newcommand{\Ker}{\operatorname*{Ker}}
+\newcommand{\id}{\operatorname*{id}}
+\newcommand{\inc}{\operatorname*{inc}}
+\newcommand{\gr}{\operatorname*{gr}}
+\newcommand{\Hom}{\operatorname*{Hom}}
+\newcommand{\calA}{\mathcal A}
+\newcommand{\arinj}{\ar@{_{(}->}}
+\newcommand{\arsurj}{\ar@{->>}}
+\newcommand{\arelem}{\ar@{|->}}
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\PBW}{\operatorname*{PBW}}
+\newcommand{\xycs}{\xymatrixcolsep}
+\newcommand{\xyrs}{\xymatrixrowsep}
+\theoremstyle{definition}
+\newtheorem{theo}{Theorem}[subsection]
+\newenvironment{theorem}[1][]
+{\begin{theo}[#1]\begin{leftbar}}
+{\end{leftbar}\end{theo}}
+\newtheorem{impnt}[theo]{Important Notice}
+\newenvironment{impnot}[1][]
+{\begin{impnt}[#1]\begin{leftbar}\color{blue}}
+{\color{black}\end{leftbar}\end{impnt}}
+\newtheorem{lem}[theo]{Lemma}
+\newenvironment{lemma}[1][]
+{\begin{lem}[#1]\begin{leftbar}}
+{\end{leftbar}\end{lem}}
+\newtheorem{prop}[theo]{Proposition}
+\newenvironment{proposition}[1][]
+{\begin{prop}[#1]\begin{leftbar}}
+{\end{leftbar}\end{prop}}
+\newtheorem{exe}[theo]{Exercise}
+\newenvironment{exercise}[1][]
+{\begin{exe}[#1]\begin{leftbar}}
+{\end{leftbar}\end{exe}}
+\newtheorem{defi}[theo]{Definition}
+\newenvironment{definition}[1][]
+{\begin{defi}[#1]\begin{leftbar}}
+{\end{leftbar}\end{defi}}
+\newtheorem{remk}[theo]{Remark}
+\newenvironment{remark}[1][]
+{\begin{remk}[#1]\begin{leftbar}}
+{\end{leftbar}\end{remk}}
+\newtheorem{coro}[theo]{Corollary}
+\newenvironment{corollary}[1][]
+{\begin{coro}[#1]\begin{leftbar}}
+{\end{leftbar}\end{coro}}
+\newtheorem{conv}[theo]{Convention}
+\newenvironment{Convention}[1][]
+{\begin{conv}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conv}}
+\newtheorem{warn}[theo]{Warning}
+\newenvironment{Warning}[1][]
+{\begin{warn}[#1]\begin{leftbar}}
+{\end{leftbar}\end{warn}}
+\newtheorem{example}[theo]{Example}
+\voffset=-0.5cm
+\hoffset=-0.7cm
+\newenvironment{verlong}{}{}
+\newenvironment{vershort}{}{}
+\newenvironment{noncompile}{}{}
+\includecomment{verlong}
+\excludecomment{vershort}
+\excludecomment{noncompile}
+\setlength\textheight{24cm}
+\setlength\textwidth{15.5cm}

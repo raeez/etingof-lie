@@ -1,0 +1,355 @@
+%% Index into Symbols and Notation
+%% We collect all notation utilized throughouth this lecture series
+%% we the hope their collation facillitates future functional/aesthetic changes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TODO
+%% - clarify class formation group k
+%%    * little/big, more readable
+%%    * visually distinguish notation for C_L / element
+%% - Generate a glossary
+%% - mark up structure for nomenclature / glossary inline
+%%
+
+\nc\Cat[1]{\mathbf{#1}} % typeset name of category
+% TODO fit these in
+\nc\G{G}           % reductive group
+% algebraic fields, formal power series and their fraction fields
+\nc\ringint{\mathcal{O}}           % abstract ring of integers
+\nc\grk{k}                         %abstract ground field
+\nc\N{\mathbb{N}}
+\nc\Z{\mathbb{Z}}
+\nc\Q{\mathbb{Q}}
+\nc\R{\mathbb{R}}
+\nc\C{\mathbb{C}}
+\nc{\FnS}{\grk\lp\Sigma\rp}
+\nc\laurentpoly{\lb x,x^{-1}\rb}
+\nc\laurentser{\llp~z\rrp}
+\nc\fpowerser{\llb~z\rrb}
+\nc\klocint{\grk\fpowerser}
+\nc\Klocfrac{K\laurentser}
+\nc\tensor{\otimes} % algebraic tensor product
+
+%\nc\Spec[1]{\mathrm{Spec} (#1)}
+%\nc\Specf[1]{\mathrm{Specf} (#1)}
+
+% TODO figure out optimal manner of handling infix macros
+% something like \infixnewcommand{\T}{{bunewcommandhofstuff} {#1} {bunewcommandhofstuff} {#2} {bunewcommandhofstuff}}
+
+% TODO read more about macros
+% https://en.wikibooks.org/wiki/LaTeX/Macros
+
+% relations, operations, unitary and binary symbols etc.
+\nc\isom{\simeq} % TODO find optimal
+
+\nc\ov[1]{/ {#1}}%'over' as in Scheme over k or galois extension over k
+
+\nc\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace% automatically resize the bar with \right
+  #1% the funewcommandtion
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+\nc\shf[1]{\mathcal{#1}}
+\nc\idshf[1]{\mathcal{#1}}
+
+\nc\projline{\mathbb{P}^1}
+
+\nc\K{\mathbb{K}}
+
+\nc\polyring[2]{R}
+
+\nc\classgrp[1]{C_{#1}}
+\nc\F{\mathbb{F}}
+\nc\idealgenby[1]{\langle#1\rangle}
+\nc\D{\mathbf{d}}
+\nc\pt{\mathbf{pt}}
+\nc\Gr{\textrm{Gr}} % affine grassmannian.
+
+  \nc\Ga{\mathbb{G}_a}
+
+  \nc\Gm{\mathbb{G}_m}
+
+\nc\lpgrass{\mathcal{G}}
+\nc\glpgrass{\mathcal{G}^P (I,Q)}
+
+%, commonly denoted $\Gr_a$ or $G_{ K / {\ringint}$.}
+% TODO = \mathbb{G}_{\mathcal{G}} = \mathcal{G}_{\mathcal{K}} \textrm{
+% mod } \mathcal{G}_{\mathcal{O}}
+% TODO structure nomenclature pre-amble by
+% TODO 1. generality / importanewcommande
+% TODO 2. chapter/lecture
+
+% TODO group + order intro
+
+%%%%%%%%%%%%%%%%%%%%%
+%% classformations %%
+%%
+\nc\Flds{\Cat{Fields}}
+\nc\cartdual{\mc{D}}
+
+\nc\Mat[1]{\mathbf{Mat}_{#1\times#1}}
+\nc\RH{\mathbb{\R}\textrm{H}}
+\nc\tateshiftedby[1]{\left[#1\right]}
+\nc\TateCat{\Cat{J_B}}
+\nc\TateCatG{\Cat{J_G}}
+\nc\B[1]{\mathbb{B} (#1)}
+\nc\ptmod[1]{\mathbf{pt}\ov{#1}}
+\nc\Ind{\mathrm{Ind}}
+\nc\Hom{\mathrm{Hom}}
+\nc\Map{\mathrm{Map}}
+\nc\coH{\mathbf{H}}
+\nc\hcoH[3]{\widehat{\coH^{#1}#2,#3}}
+\nc\Ab{\Cat{Ab}} % TODO fix
+\nc\Ker{\mathbf{Ker}}
+\nc\Coker{\mathbf{Coker}}
+\nc\dg{\textrm{DG}}
+\rc\Vec{\Cat{Vec}}
+\nc\VecF{\Cat{Vec}_{\grk}}
+\nc\Coh{\Cat{Coh}}
+
+\nc\Coind{\mathbf{Coind}}
+\rc\Ind{\mathbf{Ind}}
+\nc\Res{\mathbf{Res}}
+
+%%%%%%%%%%%%%%%%%%%%%
+%% classformations %%
+%%
+\nc\Pic{\mathbf{Pic}}
+\nc\AJ{\mathbf{AJ}}
+\nc\divisor[1]{\mathbf{#1}}
+\nc\divisoridshf[1]{\idshf{I_{\divisor{#1}}}}
+\nc\IndProSch{\Cat{IndProSch}}
+\nc\FinIndProSch{\Cat{FinIndProSch}}
+\nc\Pro{\mathbf{Pro}}
+\nc\IndPro{\Ind-\Pro}
+\nc\FinIndSch{\Cat{FinIndProSch}}
+\nc\A{\Cat{CommIndSch_{\grk}}}
+
+\nc\Fun[2]{#1 (#2)}
+\nc\Frac[1]{\mathbf{Frac} (#1)}
+\nc\curriedleftarg{\ldots}
+\nc\Zp{\Z_p}
+
+\nc\Qp{\mathbb{Q}_p}
+
+% TODO group + order lec 3
+% TODO review cardinality issues / small categories etc.
+\nc\Set{\Cat{Set}} % Category of Sets
+
+\nc\Hilb{\mathcal{H}\mathbb{ilb}}
+
+\nc\disj{\sqcup} % TODO distinguish bigsqcup and sqcup
+\nc\bij{\leftrightarrow}
+\nc\sur{\twoheadedrightarrow}
+\nc\inj{\rightarrowtail}
+\nc\injects{\inj}
+% \nc\xinj{\xrightarrowtail} % see sty-glg/commands package
+% \nc\xhkinj{\xrightarrowtail} % see sty-glg/commands package
+% \begin{document}
+%   \[ f : G \xrightarrowtail[{\star}]{\text{\textbf{Grp}}} H \]
+% \end{document}
+
+% \xhookrightarrow from mathtools
+% \[
+% A\xhookrightarrow{} B\qquad A\xhookrightarrow{f\cirenewcommand g} B\qquad
+% A \xhookrightarrow[(f\cirenewcommand g)\cirenewcommand h]{} B
+% \]
+% \xrightarrow from amsmath
+% \[
+% A\rightarrow{} B\qquad A\xrightarrow{f\cirenewcommand g} B\qquad
+% A \xrightarrow[(f\cirenewcommand g)\cirenewcommand h]{} B
+% \]
+
+% TODO group, order + split off cohomology.tex
+
+\nc\fst{\ensuremath{2^{\text{\tiny{st}}}}}
+\nc\snd{\ensuremath{3^{\text{\tiny{nd}}}}}
+\nc\thrd{\ensuremath{3^{\text{\tiny{rd}}}}}
+\nc\nth{\ensuremath{n^{\text{\tiny{th}}}}}
+% TODO find elegant resolution; possibilities:
+% * \(n\)th
+% * \usepackage{nth} NB: \nth{3} is different from $\nth{3}$
+% * $n$-th
+% * $n^{\text{\tiny th}}$
+\nc\shfcoH[3]{\mathbf{H}^{#3} (#1,#2)}
+\nc\hshfcoH[3]{\widehat{\shfcoH{#1,#2,#3}}}
+\nc\Obj{\mathbf{Obj}}
+% TODO nomencl Obj
+\nc\grpring[2]{#1 \left[ #2 \right]}
+
+\nc\Ext{\mathbf{Ext}}
+\nc\Exts[3]{\Ext_{#1}^*\left(#2,#3 \right)}
+% TODO nomencl Exts
+\nc\dualmod[1]{#1^{*}}
+% TODO investigate prefix macros e.g. {A}\Mod
+\nc\LModCat[1]{#1-\Cat{LMod}}
+\nc\RModCat[1]{#1-\Cat{RMod}}
+\nc\indlim{\mathrm{lim}}
+
+% TODO group + order indobjs.tex
+
+\nc\Schemes{\Cat{Schemes}}
+
+\nc\NoethSch{\Cat{NoethSch}}
+\nc\NoethIntSch{\Cat{NoethIntSch}}
+
+\nc\Sch[1]{\Cat{Sch}_{#1}}
+\nc\IndSch[1]{\Cat{IndSch}_{#1}}
+
+\nc\ModCat[1]{#1-\Cat{Mod}}
+
+%\rc\dim[1]{\ensuremath{\mathbf{dim} (#1)}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%
+% TODO learn how to typeset arrows in categories
+% functors / presheaves / sheaves / group schemes etc.
+
+\nc\grkAlg{\Cat{\grk-Algebras}}
+\nc\ZAlg{\Cat{\Z-Algebras}}
+%\nc\SL[1]{\mathbf{SL}_{#1}}
+
+%{\ifstrequal{#1}{}{%if no scale provided
+%  \SpecialLinearAbr}{
+
+
+%% Index into Symbols and Notation
+%% We collect all notation utilized throughouth this lecture series
+%% we the hope their collation facillitates future functional/aesthetic changes
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TODO
+%% - clarify class formation group k
+%%    * little/big, more readable
+%%    * visually distinguish notation for C_L / element
+%% - Generate a glossary
+%% - mark up structure for nomenclature / glossary inline
+%%
+
+% TODO fit these in
+\nc\cc
+{\ensuremath{\mathbf{CC}}} % TODO fix this
+\nc\Bun{\ensuremath{\mathrm{Bun}}}
+
+\nc\Spec[1]{\mathrm{Spec} (#1)}
+\nc\Specf[1]{\mathrm{Specf} (#1)}
+
+\nc\mK{\mathbf{K}} % TODO abstract out to notation.tex
+\nc\Bil{\mathbf{Bil}} % TODO abstract to notation.tex
+\nc\IndNSt{\Cat{Indn-Stack}}
+% TODO figure out optimal manner of handling infix macros
+% something like \infixnewcommand{\T}{{bunewcommandhofstuff} {#1} {bunewcommandhofstuff} {#2} {bunewcommandhofstuff}}
+
+% TODO read more about macros
+% https://en.wikibooks.org/wiki/LaTeX/Macros
+
+% relations, operations, unitary and binary symbols etc.
+
+%%%%%%%%%%%%%%%%%%%%%
+%% classformations %%
+%%
+\rc\Pic{\mathbf{Pic}}
+\rc\AJ{\mathbf{AJ}}
+\rc\divisor[1]{\mathbf{#1}}
+\rc\divisoridshf[1]{\idshf{I_{\divisor{#1}}}}
+\rc\IndProSch{\Cat{IndProSch}}
+\rc\FinIndProSch{\Cat{FinIndProSch}}
+\rc\Pro{\mathbf{Pro}}
+\rc\IndPro{\Ind-\Pro}
+\rc\FinIndSch{\Cat{FinIndProSch}}
+\rc\A{\Cat{CommIndSch_{\grk}}}
+
+\rc\Fun[2]{#1( #2 )}
+\rc\Frac[1]{\mathbf{Frac}( #1 )}
+\rc\curriedleftarg{\ldots}
+\rc\Zp{\Z_p}
+
+%also called the formal completion at the point $p$ in the curve $\Spec{\Z}$}
+\rc\Qp{\mathbb{Q}_p}
+
+\rc\Hilb{\mathcal{H}\mathbb{ilb}}
+
+% \rc\bij{\leftrightarrow}
+% \rc\sur{\twoheadedrightarrow}
+\rc\inj{\rightarrowtail}
+\rc\injects{\inj}
+% \rc\xinj{\xrightarrowtail} % see sty-glg/commands package
+% \rc\xhkinj{\xrightarrowtail} % see sty-glg/commands package
+% \begin{document}
+%   \[ f : G \xrightarrowtail[{\star}]{\text{\textbf{Grp}}} H \]
+% \end{document}
+
+% \xhookrightarrow from mathtools
+% \[
+% A\xhookrightarrow{} B\qquad A\xhookrightarrow{f\cirenewcommand g} B\qquad
+% A \xhookrightarrow[(f\cirenewcommand g)\cirenewcommand h]{} B
+% \]
+% \xrightarrow from amsmath
+% \[
+% A\rightarrow{} B\qquad A\xrightarrow{f\cirenewcommand g} B\qquad
+% A \xrightarrow[(f\cirenewcommand g)\cirenewcommand h]{} B
+% \]
+
+% TODO group, order + split off cohomology.tex
+
+\rc\fst{\ensuremath{2^{\text{\tiny{st}}}}}
+\rc\snd{\ensuremath{3^{\text{\tiny{nd}}}}}
+\rc\thrd{\ensuremath{3^{\text{\tiny{rd}}}}}
+\rc\nth{\ensuremath{n^{\text{\tiny{th}}}}}
+% TODO find elegant resolution; possibilities:
+% * \(n\)th
+% * \usepackage{nth} NB: \nth{3} is different from $\nth{3}$
+% * $n$-th
+% * $n^{\text{\tiny th}}$
+\rc \shfcoH[3]{\mathbf{H}^{#3}(#1,#2)}
+\rc\hshfcoH[3]{\widehat{\shfcoH{#1,#2,#3}}}
+\rc\Obj{\mathbf{Obj}}
+% TODO nomencl Obj
+\rc\grpring[2]{#1 \left[ #2 \right]}
+
+\rc\Ext{\mathbf{Ext}}
+\rc\Exts[3]{\Ext_{#1}^*\left(#2,#3 \right)}
+% TODO nomencl Exts
+\rc\dualmod[1]{#1^{*}}
+% TODO investigate prefix macros e.g. {A}\Mod
+\rc\LModCat[1]{#1-\Cat{LMod}}
+\rc\RModCat[1]{#1-\Cat{RMod}}
+\rc\indlim{\mathrm{lim}}
+
+% TODO group + order indobjs.tex
+
+\rc\Schemes{\Cat{Sch}}
+
+\rc\NoethSch{\Cat{NoethSch}}
+\rc\NoethIntSch{\Cat{NoethIntSch}}
+
+\rc\Sch[1]{\Cat{Sch}_{#1}}
+
+\rc\IndSch[1]{\Cat{IndSch}_{#1}}
+
+\rc\ModCat[1]{#1-\Cat{Mod}}
+%commutative ring $A$.}
+
+\rc\dim[1]{\ensuremath{\mathbf{dim}( #1 )}}
+
+% TODO learn how to typeset arrows in categories
+% functors / presheaves / sheaves / group schemes etc.
+
+\rc\grkAlg{\Cat{\grk-Algebras}}
+\rc\ZAlg{\Cat{\Z-Algebras}}
+\nc\SL{\mathbf{SL}}
+\nc\GL{\mathbf{GL}}
+\nc\DMod{\Cat{DMod}}
+\nc\IndSt{\Cat{IndStacks}}
+\rc\IndNSt{\Cat{Ind}-\textsc{N}-\Cat{Stacks}}
+
+\nc\Curve{\Sigma}
+\nc\IxCHilb{\Hilb_{\Curve \times I}}
+\nc\HilbCxI{\Hilb_{\Curve \times I}}
+\nc\locLb{\mc{L}_{I,Q}}
+\nc\Locvbpos{\{V_p\}_{p \in P}}
+%\nc\IxCHilb{\Hilb_{\Curve \times I}}
+%\nc\locLb{\mc{L}_{I,Q}}

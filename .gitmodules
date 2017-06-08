@@ -1,0 +1,3 @@
+[submodule "amstex-template"]
+	path = amstex-template
+	url = git@github.com:raeez/amstex-template.git

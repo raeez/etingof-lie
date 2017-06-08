@@ -1,0 +1,2 @@
+#!/bin/bash
+git filter-branch --index-filter 'git rm -r --cached --ignore-unmatch "$1"' HEAD

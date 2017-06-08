@@ -1,0 +1,1854 @@
+\documentclass[etingof-lie.tex]{subfiles}
+\begin{document}
+\section{The main examples}
+
+\subsection{The Heisenberg algebra}
+
+We start with the definition of the Heisenberg algebra. Before we formulate
+it, let us introduce polynomial differential forms on $\mathbb{C}^{\times}$
+(in the algebraic sense):
+
+\begin{definition}
+\label{def.diffform}Recall that $\mathbb{C}\left[  t,t^{-1}\right]  $ denotes
+the $\mathbb{C}$-algebra of Laurent polynomials in the variable $t$ over
+$\mathbb{C}$.
+
+Consider the free $\mathbb{C}\left[  t,t^{-1}\right]  $-module on the basis
+$\left(  dt\right)  $ (where $dt$ is just a symbol). The elements of this
+module are called \textit{polynomial differential forms on }$\mathbb{C}%
+^{\times}$. Thus, polynomial differential forms on $\mathbb{C}^{\times}$ are
+just formal expressions of the form $fdt$ where $f\in\mathbb{C}\left[
+t,t^{-1}\right]  $.
+
+Whenever $g\in\mathbb{C}\left[  t,t^{-1}\right]  $ is a Laurent polynomial, we
+define a polynomial differential form $dg$ by $dg=g^{\prime}dt$. This notation
+$dg$ does not conflict with the previously defined notation $dt$ (which was a
+symbol), because the polynomial $t$ satisfies $t^{\prime}=1$.
+\end{definition}
+
+\begin{definition}
+\label{def.res}For every polynomial differential form $fdt$ on $\mathbb{C}%
+^{\times}$ (with $f\in\mathbb{C}\left[  t,t^{-1}\right]  $), we define a
+complex number $\operatorname*{Res}\nolimits_{t=0}\left(  fdt\right)  $ to be
+the coefficient of the Laurent polynomial $f$ before $t^{-1}$. In other words,
+we define $\operatorname*{Res}\nolimits_{t=0}\left(  fdt\right)  $ to be
+$a_{-1}$, where $f$ is written as $\sum\limits_{i\in\mathbb{Z}}a_{i}t^{i}$
+(with $a_{i}\in\mathbb{C}$ for all $i\in\mathbb{Z}$).
+
+This number $\operatorname*{Res}\nolimits_{t=0}\left(  fdt\right)  $ is called
+the \textit{residue} of the form $fdt$ at $0$.
+\end{definition}
+
+(The same definition could have been done for Laurent series instead of
+Laurent polynomials, but this would require us to consider a slightly
+different notion of differential forms, and we do not want to do this here.)
+
+\begin{remark}
+\label{rmk.res}\textbf{(a)} Every Laurent polynomial $f\in\mathbb{C}\left[
+t,t^{-1}\right]  $ satisfies $\operatorname*{Res}\nolimits_{t=0}\left(
+df\right)  =0$.
+
+\textbf{(b)} Every Laurent polynomial $f\in\mathbb{C}\left[  t,t^{-1}\right]
+$ satisfies $\operatorname*{Res}\nolimits_{t=0}\left(  fdf\right)  =0$.
+\end{remark}
+
+\textit{Proof of Remark \ref{rmk.res}.} \textbf{(a)} Write $f$ in the form
+$\sum\limits_{i\in\mathbb{Z}}b_{i}t^{i}$ (with $b_{i}\in\mathbb{C}$ for all
+$i\in\mathbb{Z}$). Then, $f^{\prime}=\sum\limits_{i\in\mathbb{Z}}ib_{i}%
+t^{i-1}=\sum\limits_{i\in\mathbb{Z}}\left(  i+1\right)  b_{i+1}t^{i}$. Now,
+$df=f^{\prime}dt$, so that
+\begin{align*}
+\operatorname*{Res}\nolimits_{t=0}\left(  df\right)   &  =\operatorname*{Res}%
+\nolimits_{t=0}\left(  f^{\prime}dt\right)  =\left(  \text{the coefficient of
+the Laurent polynomial }f^{\prime}\text{ before }t^{-1}\right) \\
+&  =\underbrace{\left(  -1+1\right)  }_{=0}b_{-1+1}\ \ \ \ \ \ \ \ \ \ \left(
+\text{since }f^{\prime}=\sum\limits_{i\in\mathbb{Z}}\left(  i+1\right)
+b_{i+1}t^{i}\right) \\
+&  =0,
+\end{align*}
+proving Remark \ref{rmk.res} \textbf{(a)}.
+
+\textbf{(b)} \textit{First proof of Remark \ref{rmk.res} \textbf{(b)}:} By the
+Leibniz identity, $\left(  f^{2}\right)  ^{\prime}=ff^{\prime}+f^{\prime
+}f=2ff^{\prime}$, so that $ff^{\prime}=\dfrac{1}{2}\left(  f^{2}\right)
+^{\prime}$ and thus $f\underbrace{df}_{=f^{\prime}dt}=\underbrace{ff^{\prime}%
+}_{=\dfrac{1}{2}\left(  f^{2}\right)  ^{\prime}}dt=\dfrac{1}{2}%
+\underbrace{\left(  f^{2}\right)  ^{\prime}dt}_{=d\left(  f^{2}\right)
+}=\dfrac{1}{2}d\left(  f^{2}\right)  $. Thus,
+\[
+\operatorname*{Res}\nolimits_{t=0}\left(  fdf\right)  =\operatorname*{Res}%
+\nolimits_{t=0}\left(  \dfrac{1}{2}d\left(  f^{2}\right)  \right)  =\dfrac
+{1}{2}\underbrace{\operatorname*{Res}\nolimits_{t=0}\left(  d\left(
+f^{2}\right)  \right)  }_{\substack{=0\text{ (by Remark \ref{rmk.res}
+\textbf{(a)},}\\\text{applied to }f^{2}\text{ instead of }f\text{)}}}=0,
+\]
+and Remark \ref{rmk.res} \textbf{(b)} is proven.
+
+\textit{Second proof of Remark \ref{rmk.res} \textbf{(b)}:} Write $f$ in the
+form $\sum\limits_{i\in\mathbb{Z}}b_{i}t^{i}$ (with $b_{i}\in\mathbb{C}$ for
+all $i\in\mathbb{Z}$). Then, $f^{\prime}=\sum\limits_{i\in\mathbb{Z}}%
+ib_{i}t^{i-1}=\sum\limits_{i\in\mathbb{Z}}\left(  i+1\right)  b_{i+1}t^{i}$.
+Now,%
+\[
+ff^{\prime}=\left(  \sum\limits_{i\in\mathbb{Z}}b_{i}t^{i}\right)  \left(
+\sum\limits_{i\in\mathbb{Z}}\left(  i+1\right)  b_{i+1}t^{i}\right)
+=\sum\limits_{n\in\mathbb{Z}}\left(  \sum\limits_{\substack{\left(
+i,j\right)  \in\mathbb{Z}^{2};\\i+j=n}}b_{i}\cdot\left(  j+1\right)
+b_{j+1}\right)  t^{n}%
+\]
+(by the definition of the product of Laurent polynomials). Also,
+$df=f^{\prime}dt$, so that%
+\begin{align*}
+\operatorname*{Res}\nolimits_{t=0}\left(  fdf\right)   &  =\operatorname*{Res}%
+\nolimits_{t=0}\left(  ff^{\prime}dt\right)  =\left(  \text{the coefficient of
+the Laurent polynomial }ff^{\prime}\text{ before }t^{-1}\right) \\
+&  =\sum\limits_{\substack{\left(  i,j\right)  \in\mathbb{Z}^{2}%
+;\\i+j=-1}}b_{i}\cdot\left(  j+1\right)  b_{j+1}\ \ \ \ \ \ \ \ \ \ \left(
+\text{since }ff^{\prime}=\sum\limits_{n\in\mathbb{Z}}\left(  \sum
+\limits_{\substack{\left(  i,j\right)  \in\mathbb{Z}^{2};\\i+j=n}}b_{i}%
+\cdot\left(  j+1\right)  b_{j+1}\right)  t^{n}\right) \\
+&  =\sum\limits_{\substack{\left(  i,j\right)  \in\mathbb{Z}^{2}%
+;\\i+j=0}}b_{i}\cdot jb_{j}\ \ \ \ \ \ \ \ \ \ \left(  \text{here, we
+substituted }\left(  i,j\right)  \text{ for }\left(  i,j+1\right)  \text{ in
+the sum}\right) \\
+&  =\sum\limits_{j\in\mathbb{Z}}b_{-j}\cdot jb_{j}=\underbrace{\sum
+\limits_{\substack{j\in\mathbb{Z};\\j<0}}b_{-j}\cdot jb_{j}}_{\substack{=\sum
+\limits_{\substack{j\in\mathbb{Z};\\j>0}}b_{-\left(  -j\right)  }\cdot\left(
+-j\right)  b_{-j}\\\text{(here, we substituted }j\text{ for }-j\text{ in the
+sum)}}}+\underbrace{b_{-0}\cdot0b_{0}}_{=0}+\sum\limits_{\substack{j\in
+\mathbb{Z};\\j>0}}b_{-j}\cdot jb_{j}\\
+&  =\sum\limits_{\substack{j\in\mathbb{Z};\\j>0}}\underbrace{b_{-\left(
+-j\right)  }\cdot\left(  -j\right)  b_{-j}}_{=b_{j}\left(  -j\right)
+b_{-j}=-b_{-j}\cdot jb_{j}}+\sum\limits_{\substack{j\in\mathbb{Z}%
+;\\j>0}}b_{-j}\cdot jb_{j}=\sum\limits_{\substack{j\in\mathbb{Z}%
+;\\j>0}}\left(  -b_{-j}\cdot jb_{j}\right)  +\sum\limits_{\substack{j\in
+\mathbb{Z};\\j>0}}b_{-j}\cdot jb_{j}=0.
+\end{align*}
+This proves Remark \ref{rmk.res} \textbf{(b)}.
+
+Note that the first proof of Remark \ref{rmk.res} \textbf{(b)} made use of the
+fact that $2$ is invertible in $\mathbb{C}$, whereas the second proof works
+over any commutative ring instead of $\mathbb{C}$.
+
+Now, finally, we define the Heisenberg algebra:
+
+\begin{definition}
+\label{def.osc}The \textit{oscillator algebra} $\mathcal{A}$ is the vector
+space $\mathbb{C}\left[  t,t^{-1}\right]  \oplus\mathbb{C}$ endowed with the
+Lie bracket%
+\[
+\left[  \left(  f,\alpha\right)  ,\left(  g,\beta\right)  \right]  =\left(
+0,\operatorname*{Res}\nolimits_{t=0}\left(  gdf\right)  \right)  .
+\]
+Since this Lie bracket satisfies the Jacobi identity (because the definition
+quickly yields that $\left[  \left[  x,y\right]  ,z\right]  =0$ for all
+$x,y,z\in\mathcal{A}$) and is skew-symmetric (due to Remark \ref{rmk.res}
+\textbf{(b)}), this $\mathcal{A}$ is a Lie algebra.
+
+This oscillator algebra $\mathcal{A}$ is also known as the \textit{Heisenberg
+algebra}.
+\end{definition}
+
+Thus, $\mathcal{A}$ has a basis
+\[
+\left\{  a_{n}\ \mid\ n\in\mathbb{Z}\right\}  \cup\left\{  K\right\}  ,
+\]
+where $a_{n}=\left(  t^{n},0\right)  $ and $K=\left(  0,1\right)  $. The
+bracket is given by%
+\begin{align*}
+\left[  a_{n},K\right]   &  =0\ \ \ \ \ \ \ \ \ \ \left(  \text{thus, }K\text{
+is central}\right)  ;\\
+\left[  a_{n},a_{m}\right]   &  =n\delta_{n,-m}K
+\end{align*}
+(in fact, $\left[  a_{n},a_{-n}\right]  =\operatorname*{Res}\nolimits_{t=0}%
+\left(  t^{-n}dt^{n}\right)  K=\operatorname*{Res}\nolimits_{t=0}\left(
+nt^{-1}dt\right)  K=nK$). Thus, $\mathcal{A}$ is a $1$-dimensional central
+extension of the abelian Lie algebra $\mathbb{C}\left[  t,t^{-1}\right]  $;
+this means that we have a short exact sequence%
+\[
+\xymatrix{
+0 \ar[r] & \mathbb C K \ar[r] & \mathcal A \ar[r] & \mathbb C\left[t,t^{-1}\right] \ar[r] & 0
+},
+\]
+where $\mathbb{C}K$ is contained in the center of $\mathcal{A}$ and where
+$\mathbb{C}\left[  t,t^{-1}\right]  $ is an abelian Lie algebra.
+
+Note that $\mathcal{A}$ is a $2$-nilpotent Lie algebra. Also note that the
+center of $\mathcal{A}$ is spanned by $a_{0}$ and $K$.
+
+\subsection{The Witt algebra}
+
+The next introductory example will be the Lie algebra of vector fields:
+
+\begin{definition}
+Consider the free $\mathbb{C}\left[  t,t^{-1}\right]  $-module on the basis
+$\left(  \partial\right)  $ (where $\partial$ is just a symbol). This module,
+regarded as a $\mathbb{C}$-vector space, will be denoted by $W$. Thus, the
+elements of $W$ are formal expressions of the form $f\partial$ where
+$f\in\mathbb{C}\left[  t,t^{-1}\right]  $. (Thus, $W\cong\mathbb{C}\left[
+t,t^{-1}\right]  $.)
+
+Define a Lie bracket on the $\mathbb{C}$-vector space $W$ by%
+\[
+\left[  f\partial,g\partial\right]  =\left(  fg^{\prime}-gf^{\prime}\right)
+\partial\ \ \ \ \ \ \ \ \ \ \text{for all }f\in\mathbb{C}\left[
+t,t^{-1}\right]  \text{ and }g\in\mathbb{C}\left[  t,t^{-1}\right]  .
+\]
+This Lie bracket is easily seen to be skew-symmetric and satisfy the Jacobi
+identity. Thus, it makes $W$ into a Lie algebra. This Lie algebra is called
+the \textit{Witt algebra}.
+
+The elements of $W$ are called \textit{polynomial vector fields on
+}$\mathbb{C}^{\times}$.
+
+The symbol $\partial$ is often denoted by $\dfrac{d}{dt}$.
+\end{definition}
+
+\begin{remark}
+It is not by chance that $\partial$ is also known as $\dfrac{d}{dt}$. In fact,
+this notation allows us to view the elements of $W$ as actual polynomial
+vector fields on $\mathbb{C}^{\times}$ in the sense of algebraic geometry over
+$\mathbb{C}$. The Lie bracket of the Witt algebra $W$ is then exactly the
+usual Lie bracket of vector fields (because if $f\in\mathbb{C}\left[
+t,t^{-1}\right]  $ and $g\in\mathbb{C}\left[  t,t^{-1}\right]  $ are two
+Laurent polynomials, then a simple application of the Leibniz rule shows that
+the commutator of the differential operators $f\dfrac{d}{dt}$ and $g\dfrac
+{d}{dt}$ is indeed the differential operator $\left(  fg^{\prime}-gf^{\prime
+}\right)  \dfrac{d}{dt}$).
+\end{remark}
+
+A basis of the Witt algebra $W$ is $\left\{  L_{n}\ \mid\ n\in\mathbb{Z}%
+\right\}  $, where $L_{n}$ means $-t^{n+1}\dfrac{d}{dt}=-t^{n+1}\partial$.
+(Note that some other references like to define $L_{n}$ as $t^{n+1}\partial$
+instead, thus getting a different sign in many formulas.) It is easy to see
+that the Lie bracket of the Witt algebra is given on this basis by
+\[
+\left[  L_{n},L_{m}\right]  =\left(  n-m\right)  L_{n+m}%
+\ \ \ \ \ \ \ \ \ \ \text{for every }n\in\mathbb{Z}\text{ and }m\in
+\mathbb{Z}.
+\]
+
+
+\subsection{\label{subsect.Wreal}A digression: Lie groups (and the absence
+thereof)}
+
+Let us make some remarks about the relationship between Lie algebras and Lie
+groups. In analysis and geometry, linearizations (tangent spaces etc.) usually
+only give a crude approximation of non-linear things (manifolds etc.). This is
+what makes the theory of Lie groups special: The linearization of a
+finite-dimensional Lie group (i. e., its corresponding Lie algebra) carries
+very much information about the Lie group. The relation between
+finite-dimensional Lie groups and finite-dimensional Lie algebras is almost a
+one-to-one correspondence (at least if we restrict ourselves to simply
+connected Lie groups). This correspondence breaks down in the
+infinite-dimensional case. There are lots of important infinite-dimensional
+Lie groups, but their relation to Lie algebras is not as close as in the
+finite-dimensional case anymore. One example for this is that there is no Lie
+group corresponding to the Witt algebra $W$. There are a few things that come
+close to such a Lie group:
+
+We can consider the real subalgebra $W_{\mathbb{R}}$ of $W$, consisting of the
+vector fields in $W$ which are tangent to $S^{1}$ (the unit circle in
+$\mathbb{C}$). This is a real Lie algebra satisfying $W_{\mathbb{R}}%
+\otimes_{\mathbb{R}}\mathbb{C}\cong W$ (thus, $W_{\mathbb{R}}$ is what is
+called a \textit{real form} of $W$). And we can say that
+$\widehat{W_{\mathbb{R}}}=\operatorname*{Lie}\left(  \operatorname*{Diff}%
+S^{1}\right)  $ (where $\operatorname*{Diff}S^{1}$ denotes the group of all
+diffeomorphisms $S^{1}\rightarrow S^{1}$) for some kind of completion
+$\widehat{W_{\mathbb{R}}}$ of $W_{\mathbb{R}}$ (although $W_{\mathbb{R}}$
+itself is not the Lie algebra of any Lie group).\footnote{Here is how this
+completion $\widehat{W_{\mathbb{R}}}$ is defined exactly: Notice that%
+\[
+W_{\mathbb{R}}=\left\{  \varphi\left(  \theta\right)  \dfrac{d}{d\theta}%
+\ \mid\
+\begin{array}
+[c]{c}%
+\varphi\text{ is a trigonometric polynomial, i. e.,}\\
+\varphi\left(  \theta\right)  =a_{0}+\sum\limits_{n>0}a_{n}\cos n\theta
++\sum\limits_{n>0}b_{n}\sin n\theta\\
+\text{where both sums are finite}%
+\end{array}
+\right\}  ,
+\]
+where $\theta=\dfrac{1}{i}\ln t$ and $\dfrac{d}{d\theta}=it\dfrac{d}{dt}$.
+Now, define the completion $\widehat{W_{\mathbb{R}}}$ by%
+\[
+\widehat{W_{\mathbb{R}}}=\left\{  \varphi\left(  \theta\right)  \dfrac
+{d}{d\theta}\ \mid\
+\begin{array}
+[c]{c}%
+\varphi\left(  \theta\right)  =a_{0}+\sum\limits_{n>0}a_{n}\cos n\theta
++\sum\limits_{n>0}b_{n}\sin n\theta\\
+\text{where both sums are infinite sums with rapidly}\\
+\text{decreasing coefficients}%
+\end{array}
+\right\}  .
+\]
+} Now if we take two one-parameter families%
+\begin{align*}
+g_{s}  &  \in\operatorname*{Diff}S^{1},\ \ \ \ \ \ \ \ \ \ g_{s}\mid
+_{s=0}=\operatorname*{id},\ \ \ \ \ \ \ \ \ \ g_{s}^{\prime}\mid_{s=0}%
+=\varphi;\\
+h_{u}  &  \in\operatorname*{Diff}S^{1},\ \ \ \ \ \ \ \ \ \ h_{u}\mid
+_{u=0}=\operatorname*{id},\ \ \ \ \ \ \ \ \ \ h_{u}^{\prime}\mid_{u=0}=\psi,
+\end{align*}
+then%
+\begin{align*}
+g_{s}\left(  \theta\right)   &  =\theta+s\varphi\left(  \theta\right)
++O\left(  s^{2}\right)  ;\\
+h_{u}\left(  \theta\right)   &  =\theta+u\psi\left(  \theta\right)  +O\left(
+u^{2}\right)  ;\\
+\left(  g_{s}\circ h_{u}\circ g_{s}^{-1}\circ h_{u}^{-1}\right)  \left(
+\theta\right)   &  =\theta+su\left(  \varphi\psi^{\prime}-\psi\varphi^{\prime
+}\right)  \left(  \theta\right)  +\left(  \text{cubic terms in }s\text{ and
+}u\text{ and higher}\right)  .
+\end{align*}
+So we get something resembling the standard Lie-group-Lie-algebra
+correspondence, but only for the completion of the real part. For the complex
+one, some people have done some work yielding something like Lie semigroups
+(the so-called ``semigroup of annuli'' of G. Segal), but no Lie groups.
+
+Anyway, this was a digression, just to show that we don't have Lie groups
+corresponding to our Lie algebras. Still, this should not keep us from
+heuristically thinking of Lie algebras as linearizations of Lie groups. We can
+even formalize this heuristic, by using the purely algebraic notion of formal groups.
+
+\subsection{The Witt algebra acts on the Heisenberg algebra by derivations}
+
+Let's return to topic. The following proposition is a variation on a
+well-known theme:
+
+\begin{proposition}
+\label{prop.commutator.derivs}Let $\mathfrak{n}$ be a Lie algebra. Let
+$f:\mathfrak{n}\rightarrow\mathfrak{n}$ and $g:\mathfrak{n}\rightarrow
+\mathfrak{n}$ be two derivations of $\mathfrak{n}$. Then, $\left[  f,g\right]
+$ is a derivation of $\mathfrak{n}$. (Here, the Lie bracket is to be
+understood as the Lie bracket on $\operatorname*{End}\mathfrak{n}$, so that we
+have $\left[  f,g\right]  =f\circ g-g\circ f$.)
+\end{proposition}
+
+\begin{verlong}
+\textit{Proof of Proposition \ref{prop.commutator.derivs}.} Let $a\in
+\mathfrak{n}$ and $b\in\mathfrak{n}$. Since $f$ is a derivation, we have
+$f\left(  \left[  a,b\right]  \right)  =\left[  f\left(  a\right)  ,b\right]
++\left[  a,f\left(  b\right)  \right]  $. Thus,%
+\begin{align*}
+\left(  g\circ f\right)  \left(  \left[  a,b\right]  \right)   &  =g\left(
+\underbrace{f\left(  \left[  a,b\right]  \right)  }_{=\left[  f\left(
+a\right)  ,b\right]  +\left[  a,f\left(  b\right)  \right]  }\right)
+=g\left(  \left[  f\left(  a\right)  ,b\right]  +\left[  a,f\left(  b\right)
+\right]  \right) \\
+&  =\underbrace{g\left(  \left[  f\left(  a\right)  ,b\right]  \right)
+}_{\substack{=\left[  g\left(  f\left(  a\right)  \right)  ,b\right]  +\left[
+f\left(  a\right)  ,g\left(  b\right)  \right]  \\\text{(since }g\text{ is a
+derivation)}}}+\underbrace{g\left(  \left[  a,f\left(  b\right)  \right]
+\right)  }_{\substack{=\left[  g\left(  a\right)  ,f\left(  b\right)  \right]
++\left[  a,g\left(  f\left(  b\right)  \right)  \right]  \\\text{(since
+}g\text{ is a derivation)}}}\\
+&  =\left[  \underbrace{g\left(  f\left(  a\right)  \right)  }_{=\left(
+g\circ f\right)  \left(  a\right)  },b\right]  +\left[  f\left(  a\right)
+,g\left(  b\right)  \right]  +\left[  g\left(  a\right)  ,f\left(  b\right)
+\right]  +\left[  a,\underbrace{g\left(  f\left(  b\right)  \right)
+}_{=\left(  g\circ f\right)  \left(  b\right)  }\right] \\
+&  =\left[  \left(  g\circ f\right)  \left(  a\right)  ,b\right]  +\left[
+f\left(  a\right)  ,g\left(  b\right)  \right]  +\left[  g\left(  a\right)
+,f\left(  b\right)  \right]  +\left[  a,\left(  g\circ f\right)  \left(
+b\right)  \right]  .
+\end{align*}
+The same argument, with $f$ and $g$ replaced by $g$ and $f$, shows that%
+\[
+\left(  f\circ g\right)  \left(  \left[  a,b\right]  \right)  =\left[  \left(
+f\circ g\right)  \left(  a\right)  ,b\right]  +\left[  g\left(  a\right)
+,f\left(  b\right)  \right]  +\left[  f\left(  a\right)  ,g\left(  b\right)
+\right]  +\left[  a,\left(  f\circ g\right)  \left(  b\right)  \right]  .
+\]
+Thus,%
+\begin{align*}
+\underbrace{\left[  f,g\right]  }_{=f\circ g-g\circ f}\left(  \left[
+a,b\right]  \right)   &  =\left(  f\circ g-g\circ f\right)  \left(  \left[
+a,b\right]  \right) \\
+&  =\underbrace{\left(  f\circ g\right)  \left(  \left[  a,b\right]  \right)
+}_{=\left[  \left(  f\circ g\right)  \left(  a\right)  ,b\right]  +\left[
+g\left(  a\right)  ,f\left(  b\right)  \right]  +\left[  f\left(  a\right)
+,g\left(  b\right)  \right]  +\left[  a,\left(  f\circ g\right)  \left(
+b\right)  \right]  }-\underbrace{\left(  g\circ f\right)  \left(  \left[
+a,b\right]  \right)  }_{=\left[  \left(  g\circ f\right)  \left(  a\right)
+,b\right]  +\left[  f\left(  a\right)  ,g\left(  b\right)  \right]  +\left[
+g\left(  a\right)  ,f\left(  b\right)  \right]  +\left[  a,\left(  g\circ
+f\right)  \left(  b\right)  \right]  }\\
+&  =\left(  \left[  \left(  f\circ g\right)  \left(  a\right)  ,b\right]
++\left[  g\left(  a\right)  ,f\left(  b\right)  \right]  +\left[  f\left(
+a\right)  ,g\left(  b\right)  \right]  +\left[  a,\left(  f\circ g\right)
+\left(  b\right)  \right]  \right) \\
+&  \ \ \ \ \ \ \ \ \ \ -\left(  \left[  \left(  g\circ f\right)  \left(
+a\right)  ,b\right]  +\left[  f\left(  a\right)  ,g\left(  b\right)  \right]
++\left[  g\left(  a\right)  ,f\left(  b\right)  \right]  +\left[  a,\left(
+g\circ f\right)  \left(  b\right)  \right]  \right) \\
+&  =\underbrace{\left[  \left(  f\circ g\right)  \left(  a\right)  ,b\right]
+-\left[  \left(  g\circ f\right)  \left(  a\right)  ,b\right]  }_{=\left[
+\left(  f\circ g\right)  \left(  a\right)  -\left(  g\circ f\right)  \left(
+a\right)  ,b\right]  }+\underbrace{\left[  a,\left(  f\circ g\right)  \left(
+b\right)  \right]  -\left[  a,\left(  g\circ f\right)  \left(  b\right)
+\right]  }_{=\left[  a,\left(  f\circ g\right)  \left(  b\right)  -\left(
+g\circ f\right)  \left(  b\right)  \right]  }\\
+&  =\left[  \underbrace{\left(  f\circ g\right)  \left(  a\right)  -\left(
+g\circ f\right)  \left(  a\right)  }_{=\left(  f\circ g-g\circ f\right)
+\left(  a\right)  },b\right]  +\left[  a,\underbrace{\left(  f\circ g\right)
+\left(  b\right)  -\left(  g\circ f\right)  \left(  b\right)  }_{=\left(
+f\circ g-g\circ f\right)  \left(  b\right)  }\right] \\
+&  =\left[  \underbrace{\left(  f\circ g-g\circ f\right)  }_{=\left[
+f,g\right]  }\left(  a\right)  ,b\right]  +\left[  a,\underbrace{\left(
+f\circ g-g\circ f\right)  }_{=\left[  f,g\right]  }\left(  b\right)  \right]
+\\
+&  =\left[  \left[  f,g\right]  \left(  a\right)  ,b\right]  +\left[
+a,\left[  f,g\right]  \left(  b\right)  \right]  .
+\end{align*}
+We have thus proven that any $a\in\mathfrak{n}$ and $b\in\mathfrak{n}$ satisfy
+$\left[  f,g\right]  \left(  \left[  a,b\right]  \right)  =\left[  \left[
+f,g\right]  \left(  a\right)  ,b\right]  +\left[  a,\left[  f,g\right]
+\left(  b\right)  \right]  $. In other words, $\left[  f,g\right]  $ is a
+derivation. This proves Proposition \ref{prop.commutator.derivs}.
+\end{verlong}
+
+\begin{definition}
+For every Lie algebra $\mathfrak{g}$, we will denote by $\operatorname*{Der}%
+\mathfrak{g}$ the Lie subalgebra $\left\{  f\in\operatorname*{End}%
+\mathfrak{g}\ \mid\ f\text{ is a derivation}\right\}  $ of
+$\operatorname*{End}\mathfrak{g}$. (This is well-defined because Proposition
+\ref{prop.commutator.derivs} shows that $\left\{  f\in\operatorname*{End}%
+\mathfrak{g}\ \mid\ f\text{ is a derivation}\right\}  $ is a Lie subalgebra of
+$\operatorname*{End}\mathfrak{g}$.) We call $\operatorname*{Der}\mathfrak{g}$
+the \textit{Lie algebra of derivations} of $\mathfrak{g}$.
+\end{definition}
+
+\begin{lemma}
+\label{lem.WtoDerA}There is a natural homomorphism $\eta:W\rightarrow
+\operatorname*{Der}\mathcal{A}$ of Lie algebras given by
+\[
+\left(  \eta\left(  f\partial\right)  \right)  \left(  g,\alpha\right)
+=\left(  fg^{\prime},0\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }%
+f\in\mathbb{C}\left[  t,t^{-1}\right]  \text{, }g\in\mathbb{C}\left[
+t,t^{-1}\right]  \text{ and }\alpha\in\mathbb{C}.
+\]
+
+\end{lemma}
+
+\textit{First proof of Lemma \ref{lem.WtoDerA}.} Lemma \ref{lem.WtoDerA} can
+be proven by direct calculation:
+
+For every $f\partial\in W$, the map%
+\[
+\mathcal{A}\rightarrow\mathcal{A},\ \ \ \ \ \ \ \ \ \ \left(  g,\alpha\right)
+\mapsto\left(  fg^{\prime},0\right)
+\]
+is a derivation of $\mathcal{A}$\ \ \ \ \footnote{\textit{Proof.} Let
+$f\partial$ be an element of $W$. (In other words, let $f$ be an element of
+$\mathbb{C}\left[  t,t^{-1}\right]  $.) Let $\tau$ denote the map%
+\[
+\mathcal{A}\rightarrow\mathcal{A},\ \ \ \ \ \ \ \ \ \ \left(  g,\alpha\right)
+\mapsto\left(  fg^{\prime},0\right)  .
+\]
+Then, we must prove that $\tau$ is a derivation of $\mathcal{A}$.
+\par
+In fact, first it is clear that $\tau$ is $\mathbb{C}$-linear. Moreover, any
+$\left(  u,\beta\right)  \in\mathcal{A}$ and $\left(  v,\gamma\right)
+\in\mathcal{A}$ satisfy%
+\begin{align*}
+\tau\left(  \underbrace{\left[  \left(  u,\beta\right)  ,\left(
+v,\gamma\right)  \right]  }_{=\left(  0,\operatorname*{Res}\nolimits_{t=0}%
+\left(  vdu\right)  \right)  }\right)   &  =\tau\left(  0,\operatorname*{Res}%
+\nolimits_{t=0}\left(  vdu\right)  \right)  =\left(  f0,0\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by the definition of }\tau\right) \\
+&  =\left(  0,0\right)
+\end{align*}
+and%
+\begin{align*}
+&  \left[  \underbrace{\tau\left(  u,\beta\right)  }_{=\left(  fu^{\prime
+},0\right)  },\left(  v,\gamma\right)  \right]  +\left[  \left(
+u,\beta\right)  ,\underbrace{\tau\left(  v,\gamma\right)  }_{=\left(
+fv^{\prime},0\right)  }\right] \\
+&  =\underbrace{\left[  \left(  fu^{\prime},0\right)  ,\left(  v,\gamma
+\right)  \right]  }_{=\left(  0,\operatorname*{Res}\nolimits_{t=0}\left(
+vd\left(  fu^{\prime}\right)  \right)  \right)  }+\underbrace{\left[  \left(
+u,\beta\right)  ,\left(  fv^{\prime},0\right)  \right]  }_{=\left(
+0,\operatorname*{Res}\nolimits_{t=0}\left(  fv^{\prime}du\right)  \right)  }\\
+&  =\left(  0,\operatorname*{Res}\nolimits_{t=0}\left(  vd\left(  fu^{\prime
+}\right)  \right)  \right)  +\left(  0,\operatorname*{Res}\nolimits_{t=0}%
+\left(  fv^{\prime}du\right)  \right) \\
+&  =\left(  0,\operatorname*{Res}\nolimits_{t=0}\left(  vd\left(  fu^{\prime
+}\right)  +fv^{\prime}du\right)  \right)  =\left(  0,\operatorname*{Res}%
+\nolimits_{t=0}\left(  d\left(  vfu^{\prime}\right)  \right)  \right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since }v\underbrace{d\left(  fu^{\prime}\right)  }_{=\left(  fu^{\prime
+}\right)  ^{\prime}dt}+fv^{\prime}\underbrace{du}_{=u^{\prime}dt}=v\left(
+fu^{\prime}\right)  ^{\prime}dt+fv^{\prime}u^{\prime}dt\\
+=\left(  v\left(  fu^{\prime}\right)  ^{\prime}+fv^{\prime}u^{\prime}\right)
+dt=\underbrace{\left(  v\left(  fu^{\prime}\right)  ^{\prime}+v^{\prime
+}\left(  fu^{\prime}\right)  \right)  }_{=\left(  vfu^{\prime}\right)
+^{\prime}}dt=\left(  vfu^{\prime}\right)  ^{\prime}dt=d\left(  vfu^{\prime
+}\right)
+\end{array}
+\right) \\
+&  =\left(  0,0\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since Remark
+\ref{rmk.res} \textbf{(a)} (applied to }vfu^{\prime}\text{ instead of
+}f\text{) yields }\operatorname*{Res}\nolimits_{t=0}\left(  d\left(
+vfu^{\prime}\right)  \right)  =0\right)  ,
+\end{align*}
+so that $\tau\left(  \left[  \left(  u,\beta\right)  ,\left(  v,\gamma\right)
+\right]  \right)  =\left[  \tau\left(  u,\beta\right)  ,\left(  v,\gamma
+\right)  \right]  +\left[  \left(  u,\beta\right)  ,\tau\left(  v,\gamma
+\right)  \right]  $. Thus, $\tau$ is a derivation of $\mathcal{A}$, qed.},
+thus lies in $\operatorname*{Der}\mathcal{A}$. Hence, we can define a map
+$\eta:W\rightarrow\operatorname*{Der}\mathcal{A}$ by%
+\[
+\eta\left(  f\partial\right)  =\left(  \mathcal{A}\rightarrow\mathcal{A}%
+,\ \ \ \ \ \ \ \ \ \ \left(  g,\alpha\right)  \mapsto\left(  fg^{\prime
+},0\right)  \right)  \ \ \ \ \ \ \ \ \ \ \text{for all }f\in\mathbb{C}\left[
+t,t^{-1}\right]  .
+\]
+In other words, we can define a map $\eta:W\rightarrow\operatorname*{Der}%
+\mathcal{A}$ by%
+\[
+\left(  \eta\left(  f\partial\right)  \right)  \left(  g,\alpha\right)
+=\left(  fg^{\prime},0\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }%
+f\in\mathbb{C}\left[  t,t^{-1}\right]  \text{, }g\in\mathbb{C}\left[
+t,t^{-1}\right]  \text{ and }\alpha\in\mathbb{C}.
+\]
+Now, it remains to show that this map $\eta$ is a homomorphism of Lie algebras.
+
+In fact, any $f_{1}\in\mathbb{C}\left[  t,t^{-1}\right]  $ and $f_{2}%
+\in\mathbb{C}\left[  t,t^{-1}\right]  $ and any $g\in\mathbb{C}\left[
+t,t^{-1}\right]  $ and $\alpha\in\mathbb{C}$ satisfy%
+\[
+\left(  \eta\left(  \underbrace{\left[  f_{1}\partial,f_{2}\partial\right]
+}_{=\left(  f_{1}f_{2}^{\prime}-f_{2}f_{1}^{\prime}\right)  \partial}\right)
+\right)  \left(  g,\alpha\right)  =\left(  \eta\left(  \left(  f_{1}%
+f_{2}^{\prime}-f_{2}f_{1}^{\prime}\right)  \partial\right)  \right)  \left(
+g,\alpha\right)  =\left(  \left(  f_{1}f_{2}^{\prime}-f_{2}f_{1}^{\prime
+}\right)  g^{\prime},0\right)
+\]
+and%
+\begin{align*}
+&  \left[  \eta\left(  f_{1}\partial\right)  ,\eta\left(  f_{2}\partial
+\right)  \right]  \left(  g,\alpha\right) \\
+&  =\left(  \eta\left(  f_{1}\partial\right)  \right)  \underbrace{\left(
+\left(  \eta\left(  f_{2}\partial\right)  \right)  \left(  g,\alpha\right)
+\right)  }_{=\left(  f_{2}g^{\prime},0\right)  }-\left(  \eta\left(
+f_{2}\partial\right)  \right)  \underbrace{\left(  \left(  \eta\left(
+f_{1}\partial\right)  \right)  \left(  g,\alpha\right)  \right)  }_{=\left(
+f_{1}g^{\prime},0\right)  }\\
+&  =\underbrace{\left(  \eta\left(  f_{1}\partial\right)  \right)  \left(
+f_{2}g^{\prime},0\right)  }_{=\left(  f_{1}\left(  f_{2}g^{\prime}\right)
+^{\prime},0\right)  }-\underbrace{\left(  \eta\left(  f_{2}\partial\right)
+\right)  \left(  f_{1}g^{\prime},0\right)  }_{=\left(  f_{2}\left(
+f_{1}g^{\prime}\right)  ^{\prime},0\right)  }=\left(  f_{1}\left(
+f_{2}g^{\prime}\right)  ^{\prime},0\right)  -\left(  f_{2}\left(
+f_{1}g^{\prime}\right)  ^{\prime},0\right) \\
+&  =\left(  f_{1}\left(  f_{2}g^{\prime}\right)  ^{\prime}-f_{2}\left(
+f_{1}g^{\prime}\right)  ^{\prime},0\right)  =\left(  \left(  f_{1}%
+f_{2}^{\prime}-f_{2}f_{1}^{\prime}\right)  g^{\prime},0\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since }f_{1}\underbrace{\left(  f_{2}g^{\prime}\right)  ^{\prime}%
+}_{=f_{2}^{\prime}g^{\prime}+f_{2}g^{\prime\prime}}-f_{2}\underbrace{\left(
+f_{1}g^{\prime}\right)  ^{\prime}}_{=f_{1}^{\prime}g^{\prime}+f_{1}%
+g^{\prime\prime}}=f_{1}\left(  f_{2}^{\prime}g^{\prime}+f_{2}g^{\prime\prime
+}\right)  -f_{2}\left(  f_{1}^{\prime}g^{\prime}+f_{1}g^{\prime\prime}\right)
+\\
+=f_{1}f_{2}^{\prime}g^{\prime}+f_{1}f_{2}g^{\prime\prime}-f_{2}f_{1}^{\prime
+}g^{\prime}-f_{1}f_{2}g^{\prime\prime}=f_{1}f_{2}^{\prime}g^{\prime}%
+-f_{2}f_{1}^{\prime}g^{\prime}=\left(  f_{1}f_{2}^{\prime}-f_{2}f_{1}^{\prime
+}\right)  g^{\prime}%
+\end{array}
+\right)  ,
+\end{align*}
+so that
+\[
+\left(  \eta\left(  \left[  f_{1}\partial,f_{2}\partial\right]  \right)
+\right)  \left(  g,\alpha\right)  =\left(  \left(  f_{1}f_{2}^{\prime}%
+-f_{2}f_{1}^{\prime}\right)  g^{\prime},0\right)  =\left[  \eta\left(
+f_{1}\partial\right)  ,\eta\left(  f_{2}\partial\right)  \right]  \left(
+g,\alpha\right)  .
+\]
+Thus, any $f_{1}\in\mathbb{C}\left[  t,t^{-1}\right]  $ and $f_{2}%
+\in\mathbb{C}\left[  t,t^{-1}\right]  $ satisfy $\eta\left(  \left[
+f_{1}\partial,f_{2}\partial\right]  \right)  )=\left[  \eta\left(
+f_{1}\partial\right)  ,\eta\left(  f_{2}\partial\right)  \right]  $. This
+proves that $\eta$ is a Lie algebra homomorphism, and thus Lemma
+\ref{lem.WtoDerA} is proven.
+
+\textit{Second proof of Lemma \ref{lem.WtoDerA} (sketched).} The following
+proof I don't understand, so don't expect my version of it to make any sense.
+See Akhil Matthew's blog post \newline%
+\texttt{\href{http://amathew.wordpress.com/2012/03/01/the-heisenberg-and-witt-algebras/}{\texttt{http://amathew.wordpress.com/2012/03/01/the-heisenberg-and-witt-algebras/}%
+}} for a much better writeup.
+
+The following proof is a bit of an overkill; however, it is supposed to
+provide some motivation for Lemma \ref{lem.WtoDerA}. We won't be working
+completely formally, so the reader should expect some imprecision.
+
+\begin{noncompile}
+We recall the definitions of $W_{\mathbb{R}}$ and $\widehat{W_{\mathbb{R}}}$
+from Section \ref{subsect.Wreal}.
+\end{noncompile}
+
+\begin{noncompile}
+The elements of $W$, being vector fields on $S^{1}$
+\end{noncompile}
+
+\begin{noncompile}
+\textit{1st step:} We are going to prove that%
+\begin{equation}
+\left[  \left(  fu^{\prime},0\right)  ,\left(  v,\gamma\right)  \right]
++\left[  \left(  u,\beta\right)  ,\left(  fv^{\prime},0\right)  \right]
+=\left(  0,0\right)  \label{pf.WtoDerA.overkill.1}%
+\end{equation}
+for every $f\in\mathbb{C}\left[  t,t^{-1}\right]  $, $\left(  u,\beta\right)
+\in\mathcal{A}$ and $\left(  v,\gamma\right)  \in\mathcal{A}$.
+\end{noncompile}
+
+\begin{noncompile}
+\textit{Proof of (\ref{pf.WtoDerA.overkill.1}):} Let $\left(  u,\beta\right)
+\in\mathcal{A}$ and $\left(  v,\gamma\right)  \in\mathcal{A}$.
+\end{noncompile}
+
+\begin{noncompile}
+Define a bilinear form $\kappa:\mathbb{C}\left[  t,t^{-1}\right]
+\times\mathbb{C}\left[  t,t^{-1}\right]  \rightarrow\mathbb{C}$ by%
+\[
+\kappa\left(  p,q\right)  =\operatorname*{Res}\nolimits_{t=0}\left(
+qdp\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }p\in\mathbb{C}\left[
+t,t^{-1}\right]  \text{ and }q\in\mathbb{C}\left[  t,t^{-1}\right]  .
+\]
+
+\end{noncompile}
+
+\begin{noncompile}
+Then, every $p\in\mathbb{C}\left[  t,t^{-1}\right]  $ and $q\in\mathbb{C}%
+\left[  t,t^{-1}\right]  $ satisfy%
+\[
+\kappa\left(  p,q\right)  =\operatorname*{Res}\nolimits_{t=0}\left(
+qdp\right)  =\dfrac{1}{2\pi i}\oint\limits_{\left\vert t\right\vert
+=1}qdp\ \ \ \ \ \ \ \ \ \ \left(  \text{by Cauchy's residue theorem}\right)
+,
+\]
+where the integral on the right hand side is over the unit circle of $S^{1}$.
+This shows that applying any diffeomorphism of $S^{1}$ to $p$ and $q$
+(simultaneously) leaves $\kappa\left(  p,q\right)  $ unchanged (because
+$\dfrac{1}{2\pi i}\oint\limits_{\left\vert t\right\vert =1}qdp$ is defined
+invariantly). In other words, the form $\kappa$ is invariant under the action
+of the ``Lie group'' of diffeomorphisms of $S^{1}$ on $\mathbb{C}\left[
+t,t^{-1}\right]  $. Consequently, the form $\kappa$ is also invariant under
+the corresponding ``Lie algebra'' of ``infinitesimal diffeomorphisms'' of
+$S^{1}$. Since we know that the elements of $W_{\mathbb{R}}$ act as
+infinitesimal diffeomorphisms of $S^{1}$ (since $W_{\mathbb{R}}\subseteq
+\widehat{W_{\mathbb{R}}}$), this yields that%
+\[
+\kappa\left(  h\rightharpoonup p,q\right)  +\kappa\left(  p,h\rightharpoonup
+q\right)  =0\ \ \ \ \ \ \ \ \ \ \text{for any }p\in\mathbb{C}\left[
+t,t^{-1}\right]  \text{, }q\in\mathbb{C}\left[  t,t^{-1}\right]  \text{ and
+}h\in W_{\mathbb{R}}.
+\]
+Since this
+\end{noncompile}
+
+Let us really interpret the elements of $W$ as vector fields on $\mathbb{C}%
+^{\times}$. The bracket $\left[  \cdot,\cdot\right]  $ of the Lie algebra
+$\mathcal{A}$ was defined in an invariant way:%
+\[
+\left[  f,g\right]  =\operatorname*{Res}\nolimits_{t=0}\left(  gdf\right)
+=\dfrac{1}{2\pi i}\oint\limits_{\left\vert z\right\vert =1}%
+gdf\ \ \ \ \ \ \ \ \ \ \left(  \text{by Cauchy's residue theorem}\right)
+\]
+is an integral of a $1$-form, thus invariant under diffeomorphisms, thus
+invariant under ``infinitesimal diffeomorphisms'' such as the ones given by
+elements of $W$. Thus, Lemma \ref{lem.WtoDerA} becomes obvious. [This proof
+needs revision.]
+
+The first of these two proofs is obviously the more straightforward one (and
+generalizes better to fields other than $\mathbb{C}$), but it does not offer
+any explanation why Lemma \ref{lem.WtoDerA} is more than a mere coincidence.
+Meanwhile, the second proof gives Lemma \ref{lem.WtoDerA} a philosophical
+reason to be true.
+
+\subsection{The Virasoro algebra}
+
+In representation theory, one often doesn't encounter representations of $W$
+directly, but instead one finds representations of a $1$-dimensional central
+extension of $W$ called the Virasoro algebra. I will now construct this
+extension and show that it is the only one (up to isomorphism of extensions).
+
+Let us recollect the theory of central extensions of Lie algebras (more
+precisely, the $1$-dimensional ones):
+
+\begin{definition}
+\label{def.centex}If $L$ is a Lie algebra, then a $1$-dimensional central
+extension of $L$ is a Lie algebra $\widehat{L}$ along with an exact sequence%
+\begin{equation}
+0\rightarrow\mathbb{C}\rightarrow\widehat{L}\rightarrow L\rightarrow0,
+\label{def.2-cocyc.es}%
+\end{equation}
+where $\mathbb{C}$ is central in $\widehat{L}$. Since all exact sequences of
+vector spaces split, we can pick a splitting of this exact sequence on the
+level of vector spaces, and thus identify $\widehat{L}$ with $L\oplus
+\mathbb{C}$ as a vector space (not as a Lie algebra). Upon this
+identification, the Lie bracket of $\widehat{L}$ can be written as%
+\begin{equation}
+\left[  \left(  a,\alpha\right)  ,\left(  b,\beta\right)  \right]  =\left(
+\left[  a,b\right]  ,\omega\left(  a,b\right)  \right)
+\ \ \ \ \ \ \ \ \ \ \text{for }a\in L\text{, }\alpha\in\mathbb{C}\text{, }b\in
+L\text{, }\beta\in\mathbb{C}, \label{def.2-cocyc.form}%
+\end{equation}
+for some skew-symmetric bilinear form $\omega:L\times L\rightarrow\mathbb{C}$.
+(We can also write this skew-symmetric bilinear form $\omega:L\times
+L\rightarrow\mathbb{C}$ as a linear form $\wedge^{2}L\rightarrow\mathbb{C}$.)
+But $\omega$ cannot be a completely arbitrary skew-symmetric bilinear form. It
+needs to satisfy the so-called $2$\textit{-cocycle condition}%
+\begin{equation}
+\omega\left(  \left[  a,b\right]  ,c\right)  +\omega\left(  \left[
+b,c\right]  ,a\right)  +\omega\left(  \left[  c,a\right]  ,b\right)
+=0\ \ \ \ \ \ \ \ \ \ \text{for all }a,b,c\in L. \label{def.2-cocyc.eq}%
+\end{equation}
+This condition comes from the requirement that the bracket in $\widehat{L}$
+have to satisfy the Jacobi identity.
+
+In the following, a $2$\textit{-cocycle on }$L$ will mean a skew-symmetric
+bilinear form $\omega:L\times L\rightarrow\mathbb{C}$ (not necessarily
+obtained from a central extension!) which satisfies the equation
+(\ref{def.2-cocyc.eq}). (The name ``$2$-cocycle'' comes from Lie algebra
+cohomology, where $2$-cocycles are indeed the cocycles in the $2$-nd degree.)
+Thus, we have assigned a $2$-cocycle on $L$ to every $1$-dimensional central
+extension of $L$ (although the assignment depended on the splitting).
+
+Conversely, if $\omega$ is any $2$-cocycle on $L$, then we can define a
+$1$-dimensional central extension $\widehat{L}_{\omega}$ of $L$ such that the
+$2$-cocycle corresponding to this extension is $\omega$. In fact, we can
+construct such a central extension $\widehat{L}_{\omega}$ by setting
+$\widehat{L}_{\omega}=L\oplus\mathbb{C}$ as a vector space, and defining the
+Lie bracket on this vector space by (\ref{def.2-cocyc.form}). (The maps
+$\mathbb{C}\rightarrow\widehat{L}_{\omega}$ and $\widehat{L}_{\omega
+}\rightarrow L$ are the canonical ones coming from the direct sum
+decomposition $\widehat{L}_{\omega}=L\oplus\mathbb{C}$.) Thus, every
+$2$-cocycle on $L$ canonically determines a $1$-dimensional central extension
+of $L$.
+
+However, our assignment of the $2$-cocycle $\omega$ to the central extension
+$\widehat{L}$ was not canonical, but depended on the splitting of the exact
+sequence (\ref{def.2-cocyc.es}). If we change the splitting by some $\xi\in
+L^{\ast}$, then $\omega$ is changed by $d\xi$ (this means that $\omega$ is
+being replaced by $\omega+d\xi$), where $d\xi$ is the $2$-cocycle on $L$
+defined by
+\[
+d\xi\left(  a,b\right)  =\xi\left(  \left[  a,b\right]  \right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in L.
+\]
+The $2$-cocycle $d\xi$ is called a $2$\textit{-coboundary}. As a conclusion,
+$1$-dimensional central extensions of $L$ are parametrized up to isomorphism
+by the vector space%
+\[
+\left(  2\text{-cocycles}\right)  \diagup\left(  2\text{-coboundaries}\right)
+=H^{2}\left(  L\right)  .
+\]
+(Note that ``up to isomorphism'' means ``up to isomorphism of extensions''
+here, not ``up to isomorphism of Lie algebras''.) The vector space
+$H^{2}\left(  L\right)  $ is called the $2$\textit{-nd cohomology space} (or
+just the $2$-nd cohomology) of the Lie algebra $L$.
+\end{definition}
+
+\begin{theorem}
+\label{thm.H^2(W)}The vector space $H^{2}\left(  W\right)  $ is $1$%
+-dimensional and is spanned by the residue class of the $2$-cocycle $\omega$
+given by%
+\[
+\omega\left(  L_{n},L_{m}\right)  =\dfrac{n^{3}-n}{6}\delta_{n,-m}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }n,m\in\mathbb{Z}.
+\]
+
+\end{theorem}
+
+Note that in this theorem, we could have replaced the factor $\dfrac{n^{3}%
+-n}{6}$ by $n^{3}-n$ (since the vector space spanned by a vector obviously
+doesn't change if we rescale the vector by a nonzero scalar factor), or even
+by $n^{3}$ (since the $2$-cocycle $\left(  L_{n},L_{m}\right)  \mapsto
+n\delta_{n,-m}$ is a coboundary, and two $2$-cocycles which differ by a
+coboundary give the same residue class in $H^{2}\left(  W\right)  $). But we
+prefer $\dfrac{n^{3}-n}{6}$ since this is closer to how this class appears in
+representation theory (and, also, comes up in the proof below).
+
+\textit{Proof of Theorem \ref{thm.H^2(W)}.} First of all, it is easy to prove
+by computation that the bilinear form $\omega:W\times W\rightarrow\mathbb{C}$
+given by%
+\[
+\omega\left(  L_{n},L_{m}\right)  =\dfrac{n^{3}-n}{6}\delta_{n,-m}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }n,m\in\mathbb{Z}%
+\]
+is indeed a $2$-cocycle. Now, let us prove that every $2$-cocycle on $W$ is
+congruent to a multiple of $\omega$ modulo the $2$-coboundaries.
+
+Let $\beta$ be a $2$-cocycle on $W$. We must prove that $\beta$ is congruent
+to a multiple of $\omega$ modulo the $2$-coboundaries.
+
+Pick $\xi\in W^{\ast}$ such that $\xi\left(  L_{n}\right)  =\dfrac{1}{n}%
+\beta\left(  L_{n},L_{0}\right)  $ for all $n\neq0$ (such a $\xi$ clearly
+exists, but is not unique since we have complete freedom in choosing
+$\xi\left(  L_{0}\right)  $). Let $\widetilde{\beta}$ be the $2$-cocycle
+$\beta-d\xi$. Then,
+\[
+\widetilde{\beta}\left(  L_{n},L_{0}\right)  =\underbrace{\beta\left(
+L_{n},L_{0}\right)  }_{\substack{=n\xi\left(  L_{n}\right)  \\\text{(since
+}\xi\left(  L_{n}\right)  =\dfrac{1}{n}\beta\left(  L_{n},L_{0}\right)
+\text{)}}}-\xi\left(  \underbrace{\left[  L_{n},L_{0}\right]  }_{=nL_{n}%
+}\right)  =n\xi\left(  L_{n}\right)  -\xi\left(  nL_{n}\right)  =0
+\]
+for every $n\neq0$. Thus, by replacing $\beta$ by $\widetilde{\beta}$, we can
+WLOG assume that $\beta\left(  L_{n},L_{0}\right)  =0$ for every $n\neq0$.
+This clearly also holds for $n=0$ since $\beta$ is skew-symmetric. Hence,
+$\beta\left(  X,L_{0}\right)  =0$ for every $X\in W$. Now, by the $2$-cocycle
+condition, we have%
+\[
+\beta\left(  \left[  L_{0},L_{m}\right]  ,L_{n}\right)  +\beta\left(  \left[
+L_{n},L_{0}\right]  ,L_{m}\right)  +\beta\left(  \left[  L_{m},L_{n}\right]
+,L_{0}\right)  =0
+\]
+for all $n\in\mathbb{Z}$ and $m\in\mathbb{Z}$. Thus,%
+\begin{align*}
+0  &  =\beta\left(  \underbrace{\left[  L_{0},L_{m}\right]  }_{=-mL_{m}}%
+,L_{n}\right)  +\beta\left(  \underbrace{\left[  L_{n},L_{0}\right]
+}_{=nL_{n}},L_{m}\right)  +\underbrace{\beta\left(  \left[  L_{m}%
+,L_{n}\right]  ,L_{0}\right)  }_{=0\text{ (since }\beta\left(  X,L_{0}\right)
+=0\text{ for every }X\in W\text{)}}\\
+&  =-m\underbrace{\beta\left(  L_{m},L_{n}\right)  }_{\substack{=-\beta\left(
+L_{n},L_{m}\right)  \\\text{(since }\beta\text{ is skew-symmetric)}}%
+}+n\beta\left(  L_{n},L_{m}\right)  =m\beta\left(  L_{n},L_{m}\right)
++n\beta\left(  L_{n},L_{m}\right) \\
+&  =\left(  n+m\right)  \beta\left(  L_{n},L_{m}\right)
+\end{align*}
+for all $n\in\mathbb{Z}$ and $m\in\mathbb{Z}$. Hence, for all $n\in\mathbb{Z}$
+and $m\in\mathbb{Z}$ with $n+m\neq0$, we have $\beta\left(  L_{n}%
+,L_{m}\right)  =0$. In other words, there exists some sequence $\left(
+b_{n}\right)  _{n\in\mathbb{Z}}\in\mathbb{C}^{\mathbb{Z}}$ such that
+\begin{equation}
+\beta\left(  L_{n},L_{m}\right)  =b_{n}\delta_{n,-m}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }n\in\mathbb{Z}\text{ and }m\in\mathbb{Z}.
+\label{thm.H^2(W).pf.2}%
+\end{equation}
+This sequence satisfies
+\begin{equation}
+b_{-n}=-b_{n}\ \ \ \ \ \ \ \ \ \ \text{for every }n\in\mathbb{Z}
+\label{thm.H^2(W).pf.1}%
+\end{equation}
+(since $\beta$ is skew-symmetric and thus $\beta\left(  L_{n},L_{-n}\right)
+=-\beta\left(  L_{-n},L_{n}\right)  $) and thus, in particular, $b_{0}=0$. We
+will now try to get a recursive equation for this sequence.
+
+Let $m$, $n$ and $p$ be three integers satisfying $m+n+p=0$. Then, the
+$2$-cocycle condition yields%
+\[
+\beta\left(  \left[  L_{p},L_{n}\right]  ,L_{m}\right)  +\beta\left(  \left[
+L_{m},L_{p}\right]  ,L_{n}\right)  +\beta\left(  \left[  L_{n},L_{m}\right]
+,L_{p}\right)  =0.
+\]
+Due to%
+\begin{align*}
+\beta\left(  \underbrace{\left[  L_{p},L_{n}\right]  }_{=\left(  p-n\right)
+L_{p+n}},L_{m}\right)   &  =\left(  p-n\right)  \underbrace{\beta\left(
+L_{p+n},L_{m}\right)  }_{\substack{=-\beta\left(  L_{m},L_{p+n}\right)
+\\\text{(since }\beta\text{ is skew-symmetric)}}}=-\left(  p-n\right)
+\underbrace{\beta\left(  L_{m},L_{p+n}\right)  }_{\substack{=b_{m}%
+\delta_{m,-\left(  p+n\right)  }\\\text{(by (\ref{thm.H^2(W).pf.2}))}}}\\
+&  =-\left(  p-n\right)  b_{m}\underbrace{\delta_{m,-\left(  p+n\right)  }%
+}_{\substack{=1\\\text{(since }m+n+p=0\text{)}}}=-\left(  p-n\right)  b_{m}%
+\end{align*}
+and the two cyclic permutations of this equality, this rewrites as%
+\[
+\left(  -\left(  p-n\right)  b_{m}\right)  +\left(  -\left(  m-p\right)
+b_{n}\right)  +\left(  -\left(  n-m\right)  b_{p}\right)  =0.
+\]
+In other words,%
+\begin{equation}
+\left(  n-m\right)  b_{p}+\left(  m-p\right)  b_{n}+\left(  p-n\right)
+b_{m}=0. \label{thm.H^2(W).pf.3}%
+\end{equation}
+
+
+Now define a form $\xi_{0}\in W^{\ast}$ by $\xi_{0}\left(  L_{0}\right)  =1$
+and $\xi_{0}\left(  L_{i}\right)  =0$ for all $i\neq0$.
+
+By replacing $\beta$ with $\beta-\dfrac{b_{1}}{2}d\xi_{0}$, we can assume WLOG
+that $b_{1}=0$.
+
+Now let $n\in\mathbb{Z}$ be arbitrary. Setting $m=1$ and $p=-\left(
+n+1\right)  $ in (\ref{thm.H^2(W).pf.3}) (this is allowed since $1+n+\left(
+-\left(  n+1\right)  \right)  =0$), we get%
+\[
+\left(  n-1\right)  b_{-\left(  n+1\right)  }+\left(  1-\left(  -\left(
+n+1\right)  \right)  \right)  b_{n}+\left(  n-1\right)  b_{1}=0.
+\]
+Thus,%
+\begin{align*}
+0  &  =\left(  n-1\right)  \underbrace{b_{-\left(  n+1\right)  }}%
+_{=-b_{n+1}\text{ (by (\ref{thm.H^2(W).pf.1}))}}+\underbrace{\left(  1-\left(
+-\left(  n+1\right)  \right)  \right)  }_{=n+2}b_{n}+\left(  n-1\right)
+\underbrace{b_{1}}_{=0}\\
+&  =-\left(  n-1\right)  b_{n+1}+\left(  n+2\right)  b_{n},
+\end{align*}
+so that $\left(  n-1\right)  b_{n+1}=\left(  n+2\right)  b_{n}$. This
+recurrence equation rewrites as $b_{n+1}=\dfrac{n+2}{n-1}b_{n}$ for $n\geq2$.
+Thus, by induction we see that every $n\geq2$ satisfies%
+\[
+b_{n}=\dfrac{n+1}{n-2}\cdot\dfrac{n}{n-3}\cdot\dfrac{n-1}{n-4}\cdot
+...\cdot\dfrac{4}{1}b_{2}=\dfrac{\left(  n+1\right)  \cdot n\cdot...\cdot
+4}{\left(  n-2\right)  \cdot\left(  n-3\right)  \cdot...\cdot1}b_{2}%
+=\dfrac{\left(  n+1\right)  \left(  n-1\right)  n}{6}b_{2}=\dfrac{n^{3}-n}%
+{6}b_{2}.
+\]
+But $b_{n}=\dfrac{n^{3}-n}{6}b_{2}$ also holds for $n=1$ (since $b_{1}=0$ and
+$\dfrac{1^{3}-1}{6}=0$) and for $n=0$ (since $b_{0}=0$ and $\dfrac{0^{3}-0}%
+{6}=0$). Hence, $b_{n}=\dfrac{n^{3}-n}{6}b_{2}$ holds for every $n\geq0$. By
+(\ref{thm.H^2(W).pf.1}), we conclude that $b_{n}=\dfrac{n^{3}-n}{6}b_{2}$
+holds also for every $n\leq0$. Thus, every $n\in\mathbb{Z}$ satisfies
+$b_{n}=\dfrac{n^{3}-n}{6}b_{2}$. From (\ref{thm.H^2(W).pf.2}), we thus see
+that $\beta$ is a scalar multiple of $\omega$.
+
+We thus have proven that every $2$-cocycle $\beta$ on $W$ is congruent to a
+multiple of $\omega$ modulo the $2$-coboundaries. This yields that the space
+$H^{2}\left(  W\right)  $ is \textit{at most }$1$-dimensional and is spanned
+by the residue class of the $2$-cocycle $\omega$. In order to complete the
+proof of Theorem \ref{thm.H^2(W)}, we have yet to prove that $H^{2}\left(
+W\right)  $ is indeed $1$-dimensional (and not $0$-dimensional), i. e., that
+the $2$-cocycle $\omega$ is \textit{not} a $2$-coboundary. But this is
+easy\footnote{\textit{Proof.} Assume the contrary. Then, the $2$-cocycle
+$\omega$ is a $2$-coboundary. This means that there exists a linear map
+$\eta:W\rightarrow\mathbb{C}$ such that $\omega=d\eta$. Pick such a $\eta$.
+Then,%
+\[
+\omega\left(  L_{2},L_{-2}\right)  =\left(  d\eta\right)  \left(  L_{2}%
+,L_{-2}\right)  =\eta\left(  \underbrace{\left[  L_{2},L_{-2}\right]
+}_{=4L_{0}}\right)  =4\eta\left(  L_{0}\right)
+\]
+and%
+\[
+\omega\left(  L_{1},L_{-1}\right)  =\left(  d\eta\right)  \left(  L_{1}%
+,L_{-1}\right)  =\eta\left(  \underbrace{\left[  L_{1},L_{-1}\right]
+}_{=2L_{0}}\right)  =2\eta\left(  L_{0}\right)  .
+\]
+Hence,%
+\[
+2\underbrace{\omega\left(  L_{1},L_{-1}\right)  }_{=2\eta\left(  L_{0}\right)
+}=4\eta\left(  L_{0}\right)  =\omega\left(  L_{2},L_{-2}\right)  .
+\]
+But this contradicts with the equalities $\omega\left(  L_{1},L_{-1}\right)
+=0$ and $\omega\left(  L_{2},L_{-2}\right)  =1$ (which easily follow from the
+definition of $\omega$). This contradiction shows that our assumption was
+wrong, and thus the $2$-cocycle $\omega$ is not a $2$-coboundary, qed.}. The
+proof of Theorem \ref{thm.H^2(W)} is thus complete.
+
+The $2$-cocycle $\dfrac{1}{2}\omega$ (where $\omega$ is the $2$-cocycle
+introduced in Theorem \ref{thm.H^2(W)}) gives a central extension of the Witt
+algebra $W$: the so-called Virasoro algebra. Let us recast the definition of
+this algebra in elementary terms:
+
+\begin{definition}
+The \textit{Virasoro algebra} $\operatorname*{Vir}$ is defined as the vector
+space $W\oplus\mathbb{C}$ with Lie bracket defined by%
+\begin{align*}
+\left[  L_{n},L_{m}\right]   &  =\left(  n-m\right)  L_{n+m}+\dfrac{n^{3}%
+-n}{12}\delta_{n,-m}C;\\
+\left[  L_{n},C\right]   &  =0,
+\end{align*}
+where $L_{n}$ denotes $\left(  L_{n},0\right)  $ for every $n\in\mathbb{Z}$,
+and where $C$ denotes $\left(  0,1\right)  $. Note that $\left\{  L_{n}%
+\ \mid\ n\in\mathbb{Z}\right\}  \cup\left\{  C\right\}  $ is a basis of
+$\operatorname*{Vir}$.
+\end{definition}
+
+If we change the denominator $12$ to any other nonzero complex number, we get
+a Lie algebra isomorphic to $\operatorname*{Vir}$ (it is just a rescaling of
+$C$). It is easy to show that the Virasoro algebra is not isomorphic to the
+Lie-algebraic direct sum $W\oplus\mathbb{C}$. Thus, $\operatorname*{Vir}$ is
+the unique (up to Lie algebra isomorphism) nontrivial $1$-dimensional central
+extension of $W$.
+
+\subsection{Recollection on \texorpdfstring{$\mathfrak{g}$}{g}-invariant
+forms}
+
+Before we show the next important family of infinite-dimensional Lie algebras,
+let us define some standard notions. First, let us define the notion of a
+$\mathfrak{g}$-invariant form, in full generality (that is, for any two
+$\mathfrak{g}$-modules):
+
+\begin{definition}
+\label{def.g-invar}Let $\mathfrak{g}$ be a Lie algebra over a field $k$. Let
+$M$ and $N$ be two $\mathfrak{g}$-modules. Let $\beta:M\times N\rightarrow k$
+be a $k$-bilinear form. Then, this form $\beta$ is said to be $\mathfrak{g}%
+$\textit{-invariant} if and only if every $x\in\mathfrak{g}$, $a\in M$ and
+$b\in N$ satisfy%
+\[
+\beta\left(  x\rightharpoonup a,b\right)  +\beta\left(  a,x\rightharpoonup
+b\right)  =0.
+\]
+
+
+Instead of ``$\mathfrak{g}$-invariant'', one often says ``invariant''.
+\end{definition}
+
+The following remark gives an alternative characterization of $\mathfrak{g}%
+$-invariant bilinear forms (which is occasionally used as an alternative
+definition thereof):
+
+\begin{remark}
+\label{rmk.g-invar}Let $\mathfrak{g}$ be a Lie algebra over a field $k$. Let
+$M$ and $N$ be two $\mathfrak{g}$-modules. Consider the tensor product
+$M\otimes N$ of the two $\mathfrak{g}$-modules $M$ and $N$; this is known to
+be a $\mathfrak{g}$-module again. Consider also $k$ as a $\mathfrak{g}$-module
+(with the trivial $\mathfrak{g}$-module structure).
+
+Let $\beta:M\times N\rightarrow k$ be a $k$-bilinear form. Let $B$ be the
+linear map $M\otimes N\rightarrow k$ induced by the $k$-bilinear map
+$\beta:M\times N\rightarrow k$ using the universal property of the tensor product.
+
+Then, $\beta$ is $\mathfrak{g}$-invariant if and only if $B$ is a
+$\mathfrak{g}$-module homomorphism.
+\end{remark}
+
+\begin{vershort}
+We leave the proof of this remark as an instructive exercise for those who are
+not already aware of it.
+\end{vershort}
+
+\begin{verlong}
+\textit{Proof of Remark \ref{rmk.g-invar}.} We know that $B$ is the linear map
+$M\otimes N\rightarrow k$ induced by the $k$-bilinear map $\beta:M\times
+N\rightarrow k$ using the universal property of the tensor product. Hence, any
+$a\in M$ and $b\in N$ satisfy%
+\begin{equation}
+B\left(  a\otimes b\right)  =\beta\left(  a,b\right)  . \label{pf.g-invar.Bb}%
+\end{equation}
+
+
+We are going to prove the following two assertions:
+
+\textit{Assertion \ref{rmk.g-invar}.1:} If $\beta$ is $\mathfrak{g}%
+$-invariant, then $B$ is a $\mathfrak{g}$-module homomorphism.
+
+\textit{Assertion \ref{rmk.g-invar}.2:} If $B$ is a $\mathfrak{g}$-module
+homomorphism, then $\beta$ is $\mathfrak{g}$-invariant.
+
+\textit{Proof of Assertion \ref{rmk.g-invar}.1:} Assume that $\beta$ is
+$\mathfrak{g}$-invariant. Therefore, every $x\in\mathfrak{g}$, $a\in M$ and
+$b\in N$ satisfy%
+\begin{equation}
+\beta\left(  x\rightharpoonup a,b\right)  +\beta\left(  a,x\rightharpoonup
+b\right)  =0 \label{pf.g-invar.1.1}%
+\end{equation}
+(because Definition \ref{def.g-invar} states that $\beta$ is $\mathfrak{g}%
+$-invariant if and only if every $x\in\mathfrak{g}$, $a\in M$ and $b\in N$
+satisfy (\ref{pf.g-invar.1.1})).
+
+Now, let $x\in\mathfrak{g}$ and $u\in M\otimes N$. Since $u$ is a tensor in
+$M\otimes N$, we can write $u$ in the form $u=\sum\limits_{i=1}^{n}\lambda
+_{i}a_{i}\otimes b_{i}$ for some $n\in\mathbb{N}$, some elements $\lambda_{1}%
+$, $\lambda_{2}$, $...$, $\lambda_{n}$ of $k$, some elements $a_{1}$, $a_{2}$,
+$...$, $a_{n}$ of $M$ and some elements $b_{1}$, $b_{2}$, $...$, $b_{n}$ of
+$N$. Consider this $n$, these $\lambda_{1}$, $\lambda_{2}$, $...$,
+$\lambda_{n}$, these $a_{1}$, $a_{2}$, $...$, $a_{n}$, and these $b_{1}$,
+$b_{2}$, $...$, $b_{n}$.
+
+Since $u=\sum\limits_{i=1}^{n}\lambda_{i}a_{i}\otimes b_{i}$, we have%
+\begin{align*}
+x\rightharpoonup u  &  =x\rightharpoonup\left(  \sum\limits_{i=1}^{n}%
+\lambda_{i}a_{i}\otimes b_{i}\right)  =\sum\limits_{i=1}^{n}\lambda
+_{i}\underbrace{x\rightharpoonup\left(  a_{i}\otimes b_{i}\right)
+}_{\substack{=\left(  x\rightharpoonup a_{i}\right)  \otimes b_{i}%
++a_{i}\otimes\left(  x\rightharpoonup b_{i}\right)  \\\text{(by the definition
+of the }\mathfrak{g}\text{-module }M\otimes N\text{)}}}\\
+&  =\sum\limits_{i=1}^{n}\lambda_{i}\left(  \left(  x\rightharpoonup
+a_{i}\right)  \otimes b_{i}+a_{i}\otimes\left(  x\rightharpoonup b_{i}\right)
+\right)  .
+\end{align*}
+Hence,%
+\begin{align*}
+B\left(  x\rightharpoonup u\right)   &  =B\left(  \sum\limits_{i=1}^{n}%
+\lambda_{i}\left(  \left(  x\rightharpoonup a_{i}\right)  \otimes b_{i}%
++a_{i}\otimes\left(  x\rightharpoonup b_{i}\right)  \right)  \right) \\
+&  =\sum\limits_{i=1}^{n}\lambda_{i}\underbrace{B\left(  \left(
+x\rightharpoonup a_{i}\right)  \otimes b_{i}+a_{i}\otimes\left(
+x\rightharpoonup b_{i}\right)  \right)  }_{\substack{=B\left(  \left(
+x\rightharpoonup a_{i}\right)  \otimes b_{i}\right)  +B\left(  a_{i}%
+\otimes\left(  x\rightharpoonup b_{i}\right)  \right)  \\\text{(since }B\text{
+is }k\text{-linear)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }B\text{ is }k\text{-linear}\right)
+\\
+&  =\sum\limits_{i=1}^{n}\lambda_{i}\left(  \underbrace{B\left(  \left(
+x\rightharpoonup a_{i}\right)  \otimes b_{i}\right)  }_{\substack{=\beta
+\left(  x\rightharpoonup a_{i},b_{i}\right)  \\\text{(by (\ref{pf.g-invar.Bb}%
+), applied}\\\text{to }x\rightharpoonup a_{i}\text{ and }b_{i}\text{ instead
+of }a\text{ and }b\text{)}}}+\underbrace{B\left(  a_{i}\otimes\left(
+x\rightharpoonup b_{i}\right)  \right)  }_{\substack{=\beta\left(
+a_{i},x\rightharpoonup b_{i}\right)  \\\text{(by (\ref{pf.g-invar.Bb}),
+applied}\\\text{to }a_{i}\text{ and }x\rightharpoonup b_{i}\text{ instead of
+}a\text{ and }b\text{)}}}\right) \\
+&  =\sum\limits_{i=1}^{n}\lambda_{i}\underbrace{\left(  \beta\left(
+x\rightharpoonup a_{i},b_{i}\right)  +\beta\left(  a_{i},x\rightharpoonup
+b_{i}\right)  \right)  }_{\substack{=0\\\text{(by (\ref{pf.g-invar.1.1}),
+applied to}\\a=a_{i}\text{ and }b=b_{i}\text{)}}}=\sum\limits_{i=1}^{n}%
+\lambda_{i}0=0.
+\end{align*}
+Comparing this with $x\rightharpoonup\left(  B\left(  u\right)  \right)  =0$
+(because the $\mathfrak{g}$-module structure on $k$ is trivial), this yields
+$B\left(  x\rightharpoonup u\right)  =x\rightharpoonup\left(  B\left(
+u\right)  \right)  $.
+
+Now, forget that we fixed $x$ and $u$. We thus have shown that $B\left(
+x\rightharpoonup u\right)  =x\rightharpoonup\left(  B\left(  u\right)
+\right)  $ for all $x\in\mathfrak{g}$ and $u\in M\otimes N$. In other words,
+the map $B$ is a $\mathfrak{g}$-module homomorphism. This proves Assertion
+\ref{rmk.g-invar}.1.
+
+\textit{Proof of Assertion \ref{rmk.g-invar}.2:} Assume that $B$ is a
+$\mathfrak{g}$-module homomorphism. Now, let $x\in\mathfrak{g}$, $a\in M$ and
+$b\in N$. By the definition of the $\mathfrak{g}$-module $M\otimes N$, we have%
+\[
+x\rightharpoonup\left(  a\otimes b\right)  =\left(  x\rightharpoonup a\right)
+\otimes b+a\otimes\left(  x\rightharpoonup b\right)  ,
+\]
+so that%
+\begin{align*}
+B\left(  x\rightharpoonup\left(  a\otimes b\right)  \right)   &  =B\left(
+\left(  x\rightharpoonup a\right)  \otimes b+a\otimes\left(  x\rightharpoonup
+b\right)  \right) \\
+&  =\underbrace{B\left(  \left(  x\rightharpoonup a\right)  \otimes b\right)
+}_{\substack{=\beta\left(  x\rightharpoonup a,b\right)  \\\text{(by
+(\ref{pf.g-invar.Bb}), applied}\\\text{to }x\rightharpoonup a\text{ instead of
+}a\text{)}}}+\underbrace{B\left(  a\otimes\left(  x\rightharpoonup b\right)
+\right)  }_{\substack{=\beta\left(  a,x\rightharpoonup b\right)  \\\text{(by
+(\ref{pf.g-invar.Bb}), applied}\\\text{to }x\rightharpoonup b\text{ instead of
+}b\text{)}}}\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{since }B\text{ is }k\text{-linear}\right)
+\\
+&  =\beta\left(  x\rightharpoonup a,b\right)  +\beta\left(  a,x\rightharpoonup
+b\right)  .
+\end{align*}
+Comparing this with%
+\begin{align*}
+B\left(  x\rightharpoonup\left(  a\otimes b\right)  \right)   &
+=x\rightharpoonup\left(  B\left(  a\otimes b\right)  \right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }B\text{ is a }\mathfrak{g}%
+\text{-module homomorphism}\right) \\
+&  =0\ \ \ \ \ \ \ \ \ \ \left(  \text{since the }\mathfrak{g}\text{-module
+structure on }k\text{ is trivial}\right)  ,
+\end{align*}
+this yields $\beta\left(  x\rightharpoonup a,b\right)  +\beta\left(
+a,x\rightharpoonup b\right)  =0$.
+
+Now, forget that we fixed $x$, $a$ and $b$. We thus have shown that every
+$x\in\mathfrak{g}$, $a\in M$ and $b\in N$ satisfy%
+\begin{equation}
+\beta\left(  x\rightharpoonup a,b\right)  +\beta\left(  a,x\rightharpoonup
+b\right)  =0. \label{pf.g-invar.1.2}%
+\end{equation}
+In other words, $\beta$ is $\mathfrak{g}$-invariant (because Definition
+\ref{def.g-invar} states that $\beta$ is $\mathfrak{g}$-invariant if and only
+if every $x\in\mathfrak{g}$, $a\in M$ and $b\in N$ satisfy
+(\ref{pf.g-invar.1.2})). This proves Assertion \ref{rmk.g-invar}.2.
+
+Now, both Assertion \ref{rmk.g-invar}.1 and Assertion \ref{rmk.g-invar}.2 are
+proven. Combining these two assertions, we conclude that $\beta$ is
+$\mathfrak{g}$-invariant if and only if $B$ is a $\mathfrak{g}$-module
+homomorphism. This proves Remark \ref{rmk.g-invar}.
+\end{verlong}
+
+Very often, the notion of a ``$\mathfrak{g}$-invariant'' bilinear form (as
+defined in Definition \ref{def.g-invar}) is applied to forms on $\mathfrak{g}$
+itself. In this case, it has to be interpreted as follows:
+
+\begin{Convention}
+\label{conv.g-invar}Let $\mathfrak{g}$ be a Lie algebra over a field $k$. Let
+$\beta:\mathfrak{g}\times\mathfrak{g}\rightarrow k$ be a bilinear form. When
+we say that $\beta$ is $\mathfrak{g}$-invariant without specifying the
+$\mathfrak{g}$-module structure on $\mathfrak{g}$, we always tacitly
+understand that the $\mathfrak{g}$-module structure on $\mathfrak{g}$ is the
+adjoint one (i. e., the one defined by $x\rightharpoonup a=\left[  x,a\right]
+$ for all $x\in\mathfrak{g}$ and $a\in\mathfrak{g}$).
+\end{Convention}
+
+The following remark provides two equivalent criteria for a bilinear form on
+the Lie algebra $\mathfrak{g}$ itself to be $\mathfrak{g}$-invariant; they
+will often be used tacitly:
+
+\begin{remark}
+\label{rmk.g-invar.g}Let $\mathfrak{g}$ be a Lie algebra over a field $k$. Let
+$\beta:\mathfrak{g}\times\mathfrak{g}\rightarrow k$ be a $k$-bilinear form.
+
+\textbf{(a)} The form $\beta$ is $\mathfrak{g}$-invariant if and only if every
+elements $a$, $b$ and $c$ of $\mathfrak{g}$ satisfy $\beta\left(  \left[
+a,b\right]  ,c\right)  +\beta\left(  b,\left[  a,c\right]  \right)  =0$.
+
+\textbf{(b)} The form $\beta$ is $\mathfrak{g}$-invariant if and only if every
+elements $a$, $b$ and $c$ of $\mathfrak{g}$ satisfy $\beta\left(  \left[
+a,b\right]  ,c\right)  =\beta\left(  a,\left[  b,c\right]  \right)  $.
+\end{remark}
+
+\begin{vershort}
+The proof of this remark is, again, completely straightforward.
+\end{vershort}
+
+\begin{verlong}
+\textit{Proof of Remark \ref{rmk.g-invar.g}.} Consider $\mathfrak{g}$ as a
+$\mathfrak{g}$-module using the adjoint action. Then,%
+\begin{equation}
+x\rightharpoonup a=\left[  x,a\right]  \ \ \ \ \ \ \ \ \ \ \text{for any }%
+x\in\mathfrak{g}\text{ and }a\in\mathfrak{g}. \label{pf.g-invar.g.1}%
+\end{equation}
+
+
+\textbf{(a)} By Definition \ref{def.g-invar} (applied to $M=\mathfrak{g}$ and
+$N=\mathfrak{g}$), we know that the form $\beta$ is $\mathfrak{g}$-invariant
+if and only if every $x\in\mathfrak{g}$, $a\in\mathfrak{g}$ and $b\in
+\mathfrak{g}$ satisfy $\beta\left(  x\rightharpoonup a,b\right)  +\beta\left(
+a,x\rightharpoonup b\right)  =0$. Thus, we have the following equivalence of
+assertions:%
+\begin{align}
+&  \ \left(  \text{the form }\beta\text{ is }\mathfrak{g}\text{-invariant}%
+\right) \nonumber\\
+&  \Longleftrightarrow\ \left(  \text{every }x\in\mathfrak{g}\text{, }%
+a\in\mathfrak{g}\text{ and }b\in\mathfrak{g}\text{ satisfy }\beta\left(
+\underbrace{x\rightharpoonup a}_{\substack{=\left[  x,a\right]  \\\text{(by
+(\ref{pf.g-invar.g.1}))}}},b\right)  +\beta\left(
+a,\underbrace{x\rightharpoonup b}_{\substack{=\left[  x,b\right]  \\\text{(by
+(\ref{pf.g-invar.g.1}), applied}\\\text{to }b\text{ instead of }a\text{)}%
+}}\right)  =0\right) \nonumber\\
+&  \Longleftrightarrow\ \left(  \text{every }x\in\mathfrak{g}\text{, }%
+a\in\mathfrak{g}\text{ and }b\in\mathfrak{g}\text{ satisfy }\beta\left(
+\left[  x,a\right]  ,b\right)  +\beta\left(  a,\left[  x,b\right]  \right)
+=0\right) \label{pf.g-invar.g.a}\\
+&  \Longleftrightarrow\ \left(  \text{every }a\in\mathfrak{g}\text{, }%
+b\in\mathfrak{g}\text{ and }c\in\mathfrak{g}\text{ satisfy }\beta\left(
+\left[  a,b\right]  ,c\right)  +\beta\left(  b,\left[  a,c\right]  \right)
+=0\right) \nonumber\\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we renamed the indices }x\text{,
+}a\text{ and }b\text{ as }a\text{, }b\text{ and }c\right) \nonumber\\
+&  \Longleftrightarrow\ \left(  \text{every elements }a\text{, }b\text{ and
+}c\text{ of }\mathfrak{g}\text{ satisfy }\beta\left(  \left[  a,b\right]
+,c\right)  +\beta\left(  b,\left[  a,c\right]  \right)  =0\right)  .\nonumber
+\end{align}
+In other words, Remark \ref{rmk.g-invar.g} \textbf{(a)} is proven.
+
+\textbf{(b)} We have the following equivalence of assertions:%
+\begin{align*}
+&  \ \left(  \text{the form }\beta\text{ is }\mathfrak{g}\text{-invariant}%
+\right) \\
+&  \Longleftrightarrow\ \left(  \text{every }x\in\mathfrak{g}\text{, }%
+a\in\mathfrak{g}\text{ and }b\in\mathfrak{g}\text{ satisfy }\beta\left(
+\left[  x,a\right]  ,b\right)  +\beta\left(  a,\left[  x,b\right]  \right)
+=0\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{pf.g-invar.g.a})}\right) \\
+&  \Longleftrightarrow\ \left(  \text{every }b\in\mathfrak{g}\text{, }%
+a\in\mathfrak{g}\text{ and }c\in\mathfrak{g}\text{ satisfy }\beta\left(
+\left[  b,a\right]  ,c\right)  +\beta\left(  a,\left[  b,c\right]  \right)
+=0\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(  \text{here, we renamed the indices }x\text{ and
+}b\text{ as }b\text{ and }c\right) \\
+&  \Longleftrightarrow\ \left(  \text{every elements }a\text{, }b\text{ and
+}c\text{ of }\mathfrak{g}\text{ satisfy }\beta\left(  \left[  b,a\right]
+,c\right)  +\beta\left(  a,\left[  b,c\right]  \right)  =0\right) \\
+&  \Longleftrightarrow\ \left(  \text{every elements }a\text{, }b\text{ and
+}c\text{ of }\mathfrak{g}\text{ satisfy }-\beta\left(  \left[  a,b\right]
+,c\right)  +\beta\left(  a,\left[  b,c\right]  \right)  =0\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left(
+\begin{array}
+[c]{c}%
+\text{since every elements }a\text{, }b\text{ and }c\text{ of }\mathfrak{g}%
+\text{ satisfy}\\
+\beta\left(  \underbrace{\left[  b,a\right]  }_{=-\left[  a,b\right]
+},c\right)  =\beta\left(  -\left[  a,b\right]  ,c\right)  =-\beta\left(
+\left[  a,b\right]  ,c\right) \\
+\text{(since }\beta\text{ is }k\text{-bilinear)}%
+\end{array}
+\right) \\
+&  \Longleftrightarrow\ \left(  \text{every elements }a\text{, }b\text{ and
+}c\text{ of }\mathfrak{g}\text{ satisfy }\beta\left(  a,\left[  b,c\right]
+\right)  =\beta\left(  \left[  a,b\right]  ,c\right)  \right) \\
+&  \Longleftrightarrow\ \left(  \text{every elements }a\text{, }b\text{ and
+}c\text{ of }\mathfrak{g}\text{ satisfy }\beta\left(  \left[  a,b\right]
+,c\right)  =\beta\left(  a,\left[  b,c\right]  \right)  \right)  .
+\end{align*}
+In other words, Remark \ref{rmk.g-invar.g} \textbf{(b)} is proven.
+\end{verlong}
+
+An example of a $\mathfrak{g}$-invariant bilinear form on $\mathfrak{g}$
+itself for $\mathfrak{g}$ finite-dimensional is given by the so-called Killing form:
+
+\begin{proposition}
+\label{prop.killing}Let $\mathfrak{g}$ be a finite-dimensional Lie algebra
+over a field $k$. Then, the form%
+\begin{align*}
+\mathfrak{g}\times\mathfrak{g}  &  \rightarrow k,\\
+\left(  x,y\right)   &  \mapsto\operatorname*{Tr}\nolimits_{\mathfrak{g}%
+}\left(  \left(  \operatorname*{ad}x\right)  \circ\left(  \operatorname*{ad}%
+y\right)  \right)
+\end{align*}
+is a symmetric $\mathfrak{g}$-invariant bilinear form. This form is called the
+\textit{Killing form} of the Lie algebra $\mathfrak{g}$.
+\end{proposition}
+
+\begin{proposition}
+\label{prop.killing.simple}Let $\mathfrak{g}$ be a finite-dimensional
+semisimple Lie algebra over $\mathbb{C}$.
+
+\textbf{(a)} The Killing form of $\mathfrak{g}$ is nondegenerate.
+
+\textbf{(b)} Any $\mathfrak{g}$-invariant bilinear form on $\mathfrak{g}$ is a
+scalar multiple of the Killing form of $\mathfrak{g}$. (Hence, if
+$\mathfrak{g}\neq0$, then the vector space of $\mathfrak{g}$-invariant
+bilinear forms on $\mathfrak{g}$ is $1$-dimensional and spanned by the Killing form.)
+\end{proposition}
+
+\subsection{Affine Lie algebras}
+
+Now let us introduce the so-called affine Lie algebras; this is a very general
+construction from which a lot of infinite-dimensional Lie algebras emerge
+(including the Heisenberg algebra defined above).
+
+\begin{definition}
+\label{def.loop}Let $\mathfrak{g}$ be a Lie algebra.
+
+\textbf{(a)} The $\mathbb{C}$-Lie algebra $\mathfrak{g}$ induces (by extension
+of scalars) a $\mathbb{C}\left[  t,t^{-1}\right]  $-Lie algebra%
+\[
+\mathbb{C}\left[  t,t^{-1}\right]  \otimes\mathfrak{g}=\left\{  \sum
+\limits_{i\in\mathbb{Z}}a_{i}t^{i}\ \mid\ a_{i}\in\mathfrak{g}\text{; all but
+finitely many }i\in\mathbb{Z}\text{ satisfy }a_{i}=0\right\}  .
+\]
+This Lie algebra $\mathbb{C}\left[  t,t^{-1}\right]  \otimes\mathfrak{g}$,
+considered as a $\mathbb{C}$-Lie algebra, will be called the \textit{loop
+algebra} of $\mathfrak{g}$, and denoted by $\mathfrak{g}\left[  t,t^{-1}%
+\right]  $.
+
+\textbf{(b)} Let $\left(  \cdot,\cdot\right)  $ be a symmetric bilinear form
+on $\mathfrak{g}$ (that is, a symmetric bilinear map $\mathfrak{g}%
+\times\mathfrak{g}\rightarrow\mathbb{C}$) which is $\mathfrak{g}$-invariant
+(this means that $\left(  \left[  a,b\right]  ,c\right)  +\left(  b,\left[
+a,c\right]  \right)  =0$ for all $a,b,c\in\mathfrak{g}$).
+
+Then, we can define a $2$-cocycle $\omega$ on the loop algebra $\mathfrak{g}%
+\left[  t,t^{-1}\right]  $ by%
+\begin{equation}
+\omega\left(  f,g\right)  =\sum\limits_{i\in\mathbb{Z}}i\left(  f_{i}%
+,g_{-i}\right)  \ \ \ \ \ \ \ \ \ \ \text{for every }f\in\mathfrak{g}\left[
+t,t^{-1}\right]  \text{ and }g\in\mathfrak{g}\left[  t,t^{-1}\right]
+\label{loop.w}%
+\end{equation}
+(where we write $f$ in the form $f=\sum\limits_{i\in\mathbb{Z}}f_{i}t^{i}$
+with $f_{i}\in\mathfrak{g}$, and where we write $g$ in the form $g=\sum
+\limits_{i\in\mathbb{Z}}g_{i}t^{i}$ with $g_{i}\in\mathfrak{g}$).
+
+Proving that $\omega$ is a $2$-cocycle is an exercise. So we can define a
+$1$-dimensional central extension $\mathfrak{g}\left[  t,t^{-1}\right]
+_{\omega}=\mathfrak{g}\left[  t,t^{-1}\right]  \oplus\mathbb{C}$ with bracket
+defined by $\omega$.
+
+We are going to abbreviate $\mathfrak{g}\left[  t,t^{-1}\right]  _{\omega}$ by
+$\widehat{\mathfrak{g}}_{\omega}$, or, more radically, by
+$\widehat{\mathfrak{g}}$.
+\end{definition}
+
+\begin{remark}
+The equation (\ref{loop.w}) can be rewritten in the (laconical but suggestive)
+form $\omega\left(  f,g\right)  =\operatorname*{Res}\nolimits_{t=0}\left(
+df,g\right)  $. Here, $\left(  df,g\right)  $ is to be understood as follows:
+Extend the bilinear form $\left(  \cdot,\cdot\right)  :\mathfrak{g}%
+\times\mathfrak{g}\rightarrow\mathbb{C}$ to a bilinear form $\left(
+\cdot,\cdot\right)  :\mathfrak{g}\left[  t,t^{-1}\right]  \times
+\mathfrak{g}\left[  t,t^{-1}\right]  \rightarrow\mathbb{C}\left[
+t,t^{-1}\right]  $ by setting
+\[
+\left(  at^{i},bt^{j}\right)  =\left(  a,b\right)  t^{i+j}%
+\ \ \ \ \ \ \ \ \ \ \text{for all }a\in\mathfrak{g}\text{, }b\in
+\mathfrak{g}\text{, }i\in\mathbb{Z}\text{ and }j\in\mathbb{Z}.
+\]
+Also, for every $f\in\mathfrak{g}\left[  t,t^{-1}\right]  $, define the
+``derivative'' $f^{\prime}$ of $f$ to be the element $\sum\limits_{i\in
+\mathbb{Z}}if_{i}t^{i-1}$ of $\mathfrak{g}\left[  t,t^{-1}\right]  $ (where we
+write $f$ in the form $f=\sum\limits_{i\in\mathbb{Z}}f_{i}t^{i}$ with
+$f_{i}\in\mathfrak{g}$). In analogy to the notation $dg=g^{\prime}dt$ which we
+introduced in Definition \ref{def.diffform}, set $\left(  df,g\right)  $ to
+mean the polynomial differential form $\left(  f^{\prime},g\right)  dt$ for
+any $f\in\mathfrak{g}\left[  t,t^{-1}\right]  $ and $g\in\mathfrak{g}\left[
+t,t^{-1}\right]  $. Then, it is very easy to see that $\operatorname*{Res}%
+\nolimits_{t=0}\left(  df,g\right)  =\sum\limits_{i\in\mathbb{Z}}i\left(
+f_{i},g_{-i}\right)  $ (where we write $f$ in the form $f=\sum\limits_{i\in
+\mathbb{Z}}f_{i}t^{i}$ with $f_{i}\in\mathfrak{g}$, and where we write $g$ in
+the form $g=\sum\limits_{i\in\mathbb{Z}}g_{i}t^{i}$ with $g_{i}\in
+\mathfrak{g}$), so that we can rewrite (\ref{loop.w}) as $\omega\left(
+f,g\right)  =\operatorname*{Res}\nolimits_{t=0}\left(  df,g\right)  $.
+\end{remark}
+
+We already know one example of the construction in Definition \ref{def.loop}:
+
+\begin{remark}
+If $\mathfrak{g}$ is the abelian Lie algebra $\mathbb{C}$, and $\left(
+\cdot,\cdot\right)  $ is the bilinear form $\mathbb{C}\times\mathbb{C}%
+\rightarrow\mathbb{C},\ \left(  x,y\right)  \mapsto xy$, then the $2$-cocycle
+$\omega$ on the loop algebra $\mathbb{C}\left[  t,t^{-1}\right]  $ is given by%
+\[
+\omega\left(  f,g\right)  =\operatorname*{Res}\nolimits_{t=0}\left(
+gdf\right)  =\sum\limits_{i\in\mathbb{Z}}if_{i}g_{-i}%
+\ \ \ \ \ \ \ \ \ \ \text{for every }f,g\in\mathbb{C}\left[  t,t^{-1}\right]
+\]
+(where we write $f$ in the form $f=\sum\limits_{i\in\mathbb{Z}}f_{i}t^{i}$
+with $f_{i}\in\mathbb{C}$, and where we write $g$ in the form $g=\sum
+\limits_{i\in\mathbb{Z}}g_{i}t^{i}$ with $g_{i}\in\mathbb{C}$). Hence, in this
+case, the central extension $\mathfrak{g}\left[  t,t^{-1}\right]  _{\omega
+}=\widehat{\mathfrak{g}}_{\omega}$ is precisely the Heisenberg algebra
+$\mathcal{A}$ as introduced in Definition \ref{def.osc}.
+\end{remark}
+
+The main example that we will care about is when $\mathfrak{g}$ is a simple
+finite-dimensional Lie algebra and $\left(  \cdot,\cdot\right)  $ is the
+unique (up to scalar) invariant symmetric bilinear form (i. e., a multiple of
+the Killing form). In this case, the Lie algebra $\widehat{\mathfrak{g}%
+}=\widehat{\mathfrak{g}}_{\omega}$ is called an \textit{affine Lie algebra}.
+
+\begin{theorem}
+\label{thm.H^2(gtt)}If $\mathfrak{g}$ is a simple finite-dimensional Lie
+algebra, then $H^{2}\left(  \mathfrak{g}\left[  t,t^{-1}\right]  \right)  $ is
+$1$-dimensional and spanned by the cocycle $\omega$ corresponding to $\left(
+\cdot,\cdot\right)  $.
+\end{theorem}
+
+\begin{corollary}
+\label{cor.g_w^hat}If $\mathfrak{g}$ is a simple finite-dimensional Lie
+algebra, then the Lie algebra $\mathfrak{g}\left[  t,t^{-1}\right]  $ has a
+unique (up to isomorphism of Lie algebras, not up to isomorphism of
+extensions) nontrivial $1$-dimensional central extension
+$\widehat{\mathfrak{g}}_{\omega}$.
+\end{corollary}
+
+\begin{definition}
+\label{def.kac}The Lie algebra $\widehat{\mathfrak{g}}_{\omega}$ defined in
+Corollary \ref{cor.g_w^hat} (for $\left(  \cdot,\cdot\right)  $ being the
+Killing form of $\mathfrak{g}$) is called the \textit{affine Kac-Moody
+algebra} corresponding to $\mathfrak{g}$. (Or, more precisely, the
+\textit{untwisted affine Kac-Moody algebra} corresponding to $\mathfrak{g}$.)
+\end{definition}
+
+In order to prepare for the proof of Theorem \ref{thm.H^2(gtt)}, we recollect
+some facts from the cohomology of Lie algebras:
+
+\begin{definition}
+\label{def.semidir}Let $\mathfrak{g}$ be a Lie algebra. Let $M$ be a
+$\mathfrak{g}$-module. We define the \textit{semidirect product}
+$\mathfrak{g}\ltimes M$ to be the Lie algebra which, as a vector space, is
+$\mathfrak{g}\oplus M$, but whose Lie bracket is defined by%
+\begin{align*}
+\left[  \left(  a,\alpha\right)  ,\left(  b,\beta\right)  \right]   &
+=\left(  \left[  a,b\right]  ,a\rightharpoonup\beta-b\rightharpoonup
+\alpha\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \left.  \text{for all }a\in\mathfrak{g}\text{, }%
+\alpha\in M\text{, }b\in\mathfrak{g}\text{ and }\beta\in M\right.  .
+\end{align*}
+(The symbol $\rightharpoonup$ means action here; i. e., a term like
+$c\rightharpoonup m$ (with $c\in\mathfrak{g}$ and $m\in M$) means the action
+of $c$ on $m$.) Thus, the canonical injection $\mathfrak{g}\rightarrow
+\mathfrak{g}\ltimes M,$ $a\mapsto\left(  a,0\right)  $ is a Lie algebra
+homomorphism, and so is the canonical projection $\mathfrak{g}\ltimes
+M\rightarrow\mathfrak{g},$ $\left(  a,\alpha\right)  \mapsto a$. Also, $M$ is
+embedded into $\mathfrak{g}\ltimes M$ by the injection $M\rightarrow
+\mathfrak{g}\ltimes M,$ $\alpha\mapsto\left(  0,\alpha\right)  $; this makes
+$M$ an abelian Lie subalgebra of $\mathfrak{g}\ltimes M$.
+\end{definition}
+
+All statements made in Definition \ref{def.semidir} (including the tacit
+statement that the Lie bracket on $\mathfrak{g}\ltimes M$ defined in
+Definition \ref{def.semidir} satisfies antisymmetry and the Jacobi identity)
+are easy to verify by computation. The semidirect product that we have just
+defined is not the most general notion of a semidirect product. We will later
+(Definition \ref{def.semidir.lielie}) define a more general one, where $M$
+itself may have a Lie algebra structure and this structure has an effect on
+that of $\mathfrak{g}\ltimes M$. But for now, Definition \ref{def.semidir}
+suffices for us.
+
+\begin{definition}
+Let $\mathfrak{g}$ be a Lie algebra. Let $M$ be a $\mathfrak{g}$-module.
+
+\textbf{(a)} A $1$\textit{-cocycle} \textit{of }$\mathfrak{g}$\textit{ with
+coefficients in }$M$ is a linear map $\eta:\mathfrak{g}\rightarrow M$ such
+that%
+\[
+\eta\left(  \left[  a,b\right]  \right)  =a\rightharpoonup\eta\left(
+b\right)  -b\rightharpoonup\eta\left(  a\right)  \ \ \ \ \ \ \ \ \ \ \text{for
+all }a\in\mathfrak{g}\text{ and }b\in\mathfrak{g}.
+\]
+(The symbol $\rightharpoonup$ means action here; i. e., a term like
+$c\rightharpoonup m$ (with $c\in\mathfrak{g}$ and $m\in M$) means the action
+of $c$ on $m$.)
+
+It is easy to see (and known) that $1$-cocycles of $\mathfrak{g}$ with
+coefficients in $M$ are in bijection with Lie algebra homomorphisms
+$\mathfrak{g}\rightarrow\mathfrak{g}\ltimes M$. This bijection sends every
+$1$-cocycle $\eta$ to the map $\mathfrak{g}\rightarrow\mathfrak{g}\ltimes M,$
+$a\mapsto\left(  a,\eta\left(  a\right)  \right)  $.
+
+Notice that $1$-cocycles of $\mathfrak{g}$ with coefficients in the
+$\mathfrak{g}$-module $\mathfrak{g}$ are exactly the same as derivations of
+$\mathfrak{g}$.
+
+\textbf{(b)} A $1$\textit{-coboundary of }$\mathfrak{g}$ \textit{with
+coefficients in }$M$ means a linear map $\eta:\mathfrak{g}\rightarrow M$ which
+has the form $a\mapsto a\rightharpoonup m$ for some $m\in M$. Every
+$1$-coboundary of $\mathfrak{g}$ with coefficients in $M$ is a $1$-cocycle.
+
+\textbf{(c)} The space of $1$-cocycles of $\mathfrak{g}$ with coefficients in
+$M$ is denoted by $Z^{1}\left(  \mathfrak{g},M\right)  $. The space of
+$1$-coboundaries of $\mathfrak{g}$ with coefficients in $M$ is denoted by
+$B^{1}\left(  \mathfrak{g},M\right)  $. We have $B^{1}\left(  \mathfrak{g}%
+,M\right)  \subseteq Z^{1}\left(  \mathfrak{g},M\right)  $. The quotient space
+$Z^{1}\left(  \mathfrak{g},M\right)  \diagup B^{1}\left(  \mathfrak{g}%
+,M\right)  $ is denoted by $H^{1}\left(  \mathfrak{g},M\right)  $ is called
+the $1$\textit{-st cohomology space} of $\mathfrak{g}$\textit{ with
+coefficients in }$M$.
+
+Of course, these spaces $Z^{1}\left(  \mathfrak{g},M\right)  $, $B^{1}\left(
+\mathfrak{g},M\right)  $ and $H^{1}\left(  \mathfrak{g},M\right)  $ are but
+particular cases of more general constructions $Z^{i}\left(  \mathfrak{g}%
+,M\right)  $, $B^{i}\left(  \mathfrak{g},M\right)  $ and $H^{i}\left(
+\mathfrak{g},M\right)  $ which are defined for every $i\in\mathbb{N}$. (In
+particular, $H^{0}\left(  \mathfrak{g},M\right)  $ is the subspace $\left\{
+m\in M\ \mid\ a\rightharpoonup m=0\text{ for all }a\in\mathfrak{g}\right\}  $
+of $M$, and often denoted by $M^{\mathfrak{g}}$.) The spaces $H^{i}\left(
+\mathfrak{g},M\right)  $ (or, more precisely, the functors assigning these
+spaces to every $\mathfrak{g}$-module $M$) can be understood as the so-called
+derived functors of the functor $M\mapsto M^{\mathfrak{g}}$. However, we won't
+use $H^{i}\left(  \mathfrak{g},M\right)  $ for any $i$ other than $1$ here.
+
+We record a relation between $H^{1}\left(  \mathfrak{g},M\right)  $ and the
+$\operatorname*{Ext}$ bifunctor:%
+\[
+H^{1}\left(  \mathfrak{g},M\right)  =\operatorname*{Ext}%
+\nolimits_{\mathfrak{g}}^{1}\left(  \mathbb{C},M\right)  .
+\]
+More generally, $\operatorname*{Ext}\nolimits_{\mathfrak{g}}^{1}\left(
+N,M\right)  =H^{1}\left(  \mathfrak{g},\operatorname*{Hom}%
+\nolimits_{\mathbb{C}}\left(  N,M\right)  \right)  $ for any two
+$\mathfrak{g}$-modules $N$ and $M$.
+\end{definition}
+
+\begin{theorem}
+[Whitehead]\label{thm.white}If $\mathfrak{g}$ is a simple finite-dimensional
+Lie algebra, and $M$ is a finite-dimensional $\mathfrak{g}$-module, then
+$H^{1}\left(  \mathfrak{g},M\right)  =0$.
+\end{theorem}
+
+\textit{Proof of Theorem \ref{thm.white}.} Since $\mathfrak{g}$ is a simple
+Lie algebra, Weyl's theorem says that finite-dimensional $\mathfrak{g}%
+$-modules are completely reducible. Hence, if $N$ and $M$ are
+finite-dimensional $\mathfrak{g}$-modules, we have $\operatorname*{Ext}%
+\nolimits_{\mathfrak{g}}^{1}\left(  N,M\right)  =0$. In particular,
+$\operatorname*{Ext}\nolimits_{\mathfrak{g}}^{1}\left(  \mathbb{C},M\right)
+=0$. Since $H^{1}\left(  \mathfrak{g},M\right)  =\operatorname*{Ext}%
+\nolimits_{\mathfrak{g}}^{1}\left(  \mathbb{C},M\right)  $, this yields
+$H^{1}\left(  \mathfrak{g},M\right)  =0$. Theorem \ref{thm.white} is thus proven.
+
+\begin{lemma}
+\label{lem.Z^1}Let $\omega$ be a $2$-cocycle on a Lie algebra $\mathfrak{g}$.
+Let $\mathfrak{g}_{0}\subseteq\mathfrak{g}$ be a Lie subalgebra, and
+$M\subseteq\mathfrak{g}$ be a $\mathfrak{g}_{0}$-submodule. Then, $\omega
+\mid_{\mathfrak{g}_{0}\times M}$, when considered as a map $\mathfrak{g}%
+_{0}\rightarrow M^{\ast}$, belongs to $Z^{1}\left(  \mathfrak{g}_{0},M^{\ast
+}\right)  $.
+\end{lemma}
+
+The proof of Lemma \ref{lem.Z^1} is a straightforward manipulation of formulas:
+
+\textit{Proof of Lemma \ref{lem.Z^1}.} Let $\eta$ denote the $2$-cocycle
+$\omega\mid_{\mathfrak{g}_{0}\times M}$, considered as a map $\mathfrak{g}%
+_{0}\rightarrow M^{\ast}$. Thus, $\eta$ is defined by%
+\[
+\eta\left(  x\right)  =\left(  M\rightarrow\mathbb{C}%
+,\ \ \ \ \ \ \ \ \ \ y\mapsto\omega\left(  x,y\right)  \right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }x\in\mathfrak{g}_{0}.
+\]
+Hence,
+\begin{equation}
+\left(  \eta\left(  x\right)  \right)  \left(  y\right)  =\omega\left(
+x,y\right)  \ \ \ \ \ \ \ \ \ \ \text{for all }x\in\mathfrak{g}_{0}\text{ and
+}y\in M. \label{pf.Z^1.eta}%
+\end{equation}
+
+
+Thus, any $a\in\mathfrak{g}_{0}$, $b\in\mathfrak{g}_{0}$ and $c\in M$ satisfy
+$\left(  \eta\left(  \left[  a,b\right]  \right)  \right)  \left(  c\right)
+=\omega\left(  \left[  a,b\right]  ,c\right)  $ and%
+\begin{align*}
+&  \left(  a\rightharpoonup\eta\left(  b\right)  -b\rightharpoonup\eta\left(
+a\right)  \right)  \left(  c\right) \\
+&  =\underbrace{\left(  a\rightharpoonup\eta\left(  b\right)  \right)  \left(
+c\right)  }_{\substack{=-\left(  \eta\left(  b\right)  \right)  \left(
+\left[  a,c\right]  \right)  \\\text{(by the definition of the dual of a
+}\mathfrak{g}_{0}\text{-module)}}}-\underbrace{\left(  b\rightharpoonup
+\eta\left(  a\right)  \right)  \left(  c\right)  }_{\substack{=-\left(
+\eta\left(  a\right)  \right)  \left(  \left[  b,c\right]  \right)
+\\\text{(by the definition of the dual of a }\mathfrak{g}_{0}\text{-module)}%
+}}\\
+&  =\left(  -\underbrace{\left(  \eta\left(  b\right)  \right)  \left(
+\left[  a,c\right]  \right)  }_{\substack{=\omega\left(  b,\left[  a,c\right]
+\right)  \\\text{(by (\ref{pf.Z^1.eta}))}}}\right)  -\left(
+-\underbrace{\left(  \eta\left(  a\right)  \right)  \left(  \left[
+b,c\right]  \right)  }_{\substack{=\omega\left(  a,\left[  b,c\right]
+\right)  \\\text{(by (\ref{pf.Z^1.eta}))}}}\right)  =\left(  -\omega\left(
+b,\left[  a,c\right]  \right)  \right)  -\left(  -\omega\left(  a,\left[
+b,c\right]  \right)  \right) \\
+&  =-\omega\left(  b,\underbrace{\left[  a,c\right]  }_{=-\left[  c,a\right]
+}\right)  +\omega\left(  a,\left[  b,c\right]  \right)  =\underbrace{\omega
+\left(  b,\left[  c,a\right]  \right)  }_{\substack{=-\omega\left(  \left[
+c,a\right]  ,b\right)  \\\text{(since }\omega\text{ is antisymmetric)}%
+}}+\underbrace{\omega\left(  a,\left[  b,c\right]  \right)  }%
+_{\substack{=-\omega\left(  \left[  b,c\right]  ,a\right)  \\\text{(since
+}\omega\text{ is antisymmetric)}}}\\
+&  =-\omega\left(  \left[  c,a\right]  ,b\right)  -\omega\left(  \left[
+b,c\right]  ,a\right)  =\omega\left(  \left[  a,b\right]  ,c\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{def.2-cocyc.eq})}\right)  ,
+\end{align*}
+so that $\left(  \eta\left(  \left[  a,b\right]  \right)  \right)  \left(
+c\right)  =\left(  a\rightharpoonup\eta\left(  b\right)  -b\rightharpoonup
+\eta\left(  a\right)  \right)  \left(  c\right)  $. Thus, any $a\in
+\mathfrak{g}_{0}$ and $b\in\mathfrak{g}_{0}$ satisfy $\eta\left(  \left[
+a,b\right]  \right)  =a\rightharpoonup\eta\left(  b\right)  -b\rightharpoonup
+\eta\left(  a\right)  $. This shows that $\eta$ is a $1$-cocycle, i. e.,
+belongs to $Z^{1}\left(  \mathfrak{g}_{0},M^{\ast}\right)  $. Lemma
+\ref{lem.Z^1} is proven.
+
+\textit{Proof of Theorem \ref{thm.H^2(gtt)}.} First notice that any
+$a,b,c\in\mathfrak{g}$ satisfy%
+\begin{equation}
+\left(  \left[  a,b\right]  ,c\right)  =\left(  \left[  b,c\right]  ,a\right)
+=\left(  \left[  c,a\right]  ,b\right)  \label{thm.H^2(gtt).pf.0}%
+\end{equation}
+\footnote{\textit{Proof.} First of all, any $a,b,c\in\mathfrak{g}$ satisfy%
+\begin{align*}
+\left(  \left[  a,b\right]  ,c\right)   &  =\left(  a,\left[  b,c\right]
+\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{since the form }\left(  \cdot
+,\cdot\right)  \text{ is invariant}\right) \\
+&  =\left(  \left[  b,c\right]  ,a\right)  \ \ \ \ \ \ \ \ \ \ \left(
+\text{since the form }\left(  \cdot,\cdot\right)  \text{ is symmetric}\right)
+.
+\end{align*}
+Applying this to $b,c,a$ instead of $a,b,c$, we obtain $\left(  \left[
+b,c\right]  ,a\right)  =\left(  \left[  c,a\right]  ,b\right)  $. Hence,
+$\left(  \left[  a,b\right]  ,c\right)  =\left(  \left[  b,c\right]
+,a\right)  =\left(  \left[  c,a\right]  ,b\right)  $, so that
+(\ref{thm.H^2(gtt).pf.0}) is proven.}. Moreover,%
+\begin{equation}
+\text{there exist }a,b,c\in\mathfrak{g}\text{ such that }\left(  \left[
+a,b\right]  ,c\right)  =\left(  \left[  b,c\right]  ,a\right)  =\left(
+\left[  c,a\right]  ,b\right)  \neq0. \label{thm.H^2(gtt).pf.00}%
+\end{equation}
+\footnote{\textit{Proof.} Since $\mathfrak{g}$ is simple, we have $\left[
+\mathfrak{g},\mathfrak{g}\right]  =\mathfrak{g}$ and thus $\left(  \left[
+\mathfrak{g},\mathfrak{g}\right]  ,\mathfrak{g}\right)  =\left(
+\mathfrak{g},\mathfrak{g}\right)  \neq0$ (since the form $\left(  \cdot
+,\cdot\right)  $ is nondegenerate). Hence, there exist $a,b,c\in\mathfrak{g}$
+such that $\left(  \left[  a,b\right]  ,c\right)  \neq0$. The rest is handled
+by (\ref{thm.H^2(gtt).pf.0}).} This will be used later in our proof; but as
+for now, forget about these $a,b,c$.
+
+It is easy to see that the $2$-cocycle $\omega$ on $\mathfrak{g}\left[
+t,t^{-1}\right]  $ defined by (\ref{loop.w}) is not a $2$%
+-coboundary.\footnote{\textit{Proof.} Assume the contrary. Then, this
+$2$-cocycle $\omega$ is a coboundary, i. e., there exists a linear map
+$\xi:\mathfrak{g}\left[  t,t^{-1}\right]  \rightarrow\mathbb{C}$ such that
+$\omega=d\xi$.
+\par
+Now, pick some $a\in\mathfrak{g}$ and $b\in\mathfrak{g}$ such that $\left(
+a,b\right)  \neq0$ (this is possible since the form $\left(  \cdot
+,\cdot\right)  $ is nondegenerate). Then,%
+\[
+\underbrace{\omega}_{=d\xi}\left(  at,bt^{-1}\right)  =\left(  d\xi\right)
+\left(  at,bt^{-1}\right)  =\xi\left(  \underbrace{\left[  at,bt^{-1}\right]
+}_{=\left[  a,b\right]  }\right)  =\xi\left(  \left[  a,b\right]  \right)
+\]
+and%
+\[
+\underbrace{\omega}_{=d\xi}\left(  a,b\right)  =\left(  d\xi\right)  \left(
+a,b\right)  =\xi\left(  \left[  a,b\right]  \right)  ,
+\]
+so that $\omega\left(  at,bt^{-1}\right)  =\omega\left(  a,b\right)  $. But by
+the definition of $\omega$, we easily see that $\omega\left(  at,bt^{-1}%
+\right)  =1\underbrace{\left(  a,b\right)  }_{\neq0}\neq0$ and $\omega\left(
+a,b\right)  =0\left(  a,b\right)  =0$, which yields a contradiction.}
+
+Now let us consider the structure of $\mathfrak{g}\left[  t,t^{-1}\right]  $.
+We have $\mathfrak{g}\left[  t,t^{-1}\right]  =\bigoplus\limits_{n\in
+\mathbb{Z}}\mathfrak{g}t^{n}\supseteq\mathfrak{g}t^{0}=\mathfrak{g}$. This is,
+actually, an inclusion of Lie algebras. So $\mathfrak{g}$ is a Lie subalgebra
+of $\mathfrak{g}\left[  t,t^{-1}\right]  $, and $\mathfrak{g}t^{n}$ is a
+$\mathfrak{g}$-submodule of $\mathfrak{g}\left[  t,t^{-1}\right]  $ isomorphic
+to $\mathfrak{g}$ for every $n\in\mathbb{Z}$.
+
+Let $\omega$ be an arbitrary $2$-cocycle on $\mathfrak{g}\left[
+t,t^{-1}\right]  $ (not necessarily the one defined by (\ref{loop.w})).
+
+Let $n\in\mathbb{Z}$. Then, $\omega\mid_{\mathfrak{g}\times\mathfrak{g}t^{n}}%
+$, when considered as a map $\mathfrak{g}\rightarrow\left(  \mathfrak{g}%
+t^{n}\right)  ^{\ast}$, belongs to $Z^{1}\left(  \mathfrak{g},\left(
+\mathfrak{g}t^{n}\right)  ^{\ast}\right)  $ (by Lemma \ref{lem.Z^1}, applied
+to $\mathfrak{g}$, $\mathfrak{g}t^{n}$ and $\mathfrak{g}\left[  t,t^{-1}%
+\right]  $ instead of $\mathfrak{g}_{0}$, $M$ and $\mathfrak{g}$), i. e., is a
+$1$-cocycle. But by Theorem \ref{thm.white}, we have $H^{1}\left(
+\mathfrak{g},\left(  \mathfrak{g}t^{n}\right)  ^{\ast}\right)  =0$, so this
+rewrites as $\omega\mid_{\mathfrak{g}\times\mathfrak{g}t^{n}}\in B^{1}\left(
+\mathfrak{g},\left(  \mathfrak{g}t^{n}\right)  ^{\ast}\right)  $. In other
+words, there exists some $\xi_{n}\in\left(  \mathfrak{g}t^{n}\right)  ^{\ast}$
+such that $\omega\mid_{\mathfrak{g}\times\mathfrak{g}t^{n}}=d\xi_{n}$. Pick
+such a $\xi_{n}$. Thus,%
+\[
+\omega\left(  a,bt^{n}\right)  =\underbrace{\left(  \omega\mid_{\mathfrak{g}%
+\times\mathfrak{g}t^{n}}\right)  }_{=d\xi_{n}}\left(  a,bt^{n}\right)
+=\left(  d\xi_{n}\right)  \left(  a,bt^{n}\right)  =\xi_{n}\left(  \left[
+a,bt^{n}\right]  \right)  \ \ \ \ \ \ \ \ \ \ \text{for all }a,b\in
+\mathfrak{g}.
+\]
+
+
+Define a map $\xi:\mathfrak{g}\left[  t,t^{-1}\right]  \rightarrow\mathbb{C}$
+by requiring that $\xi\mid_{\mathfrak{g}t^{n}}=\xi_{n}$ for every
+$n\in\mathbb{Z}$.
+
+Now, let $\widetilde{\omega}=\omega-d\xi$. Then,%
+\[
+\widetilde{\omega}\left(  x,y\right)  =\omega\left(  x,y\right)  -\xi\left(
+\left[  x,y\right]  \right)  \ \ \ \ \ \ \ \ \ \ \text{for all }%
+x,y\in\mathfrak{g}\left[  t,t^{-1}\right]  .
+\]
+Replace $\omega$ by $\widetilde{\omega}$ (this doesn't change the residue
+class of $\omega$ in $H^{2}\left(  \mathfrak{g}\left[  t,t^{-1}\right]
+\right)  $, since $\widetilde{\omega}$ differs from $\omega$ by a
+$2$-coboundary). By doing this, we have reduced to a situation when
+\[
+\omega\left(  a,bt^{n}\right)  =0\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a,b\in\mathfrak{g}\text{ and }n\in\mathbb{Z}.
+\]
+\footnote{But all the $\xi$-freedom has been used up in this reduction - i.
+e., if the new $\omega$ is nonzero, then the original $\omega$ was not a
+$2$-coboundary. This gives us an alternative way of proving that the
+$2$-cocycle $\omega$ on $\mathfrak{g}\left[  t,t^{-1}\right]  $ defined by
+(\ref{loop.w}) is not a $2$-coboundary.} Since $\omega$ is antisymmetric, this
+yields%
+\begin{equation}
+\omega\left(  bt^{n},a\right)  =0\ \ \ \ \ \ \ \ \ \ \text{for all }%
+a,b\in\mathfrak{g}\text{ and }n\in\mathbb{Z}. \label{thm.H^2(gtt).pf.1}%
+\end{equation}
+
+
+Now, fix some $n\in\mathbb{Z}$ and $m\in\mathbb{Z}$. Since $\omega$ is a
+$2$-cocycle, the $2$-cocycle condition yields%
+\begin{align*}
+0  &  =\omega\left(  \underbrace{\left[  a,bt^{n}\right]  }_{=\left[
+a,b\right]  t^{n}},ct^{m}\right)  +\omega\left(  \underbrace{\left[
+ct^{m},a\right]  }_{\substack{=\left[  c,a\right]  t^{m}\\=-\left[
+a,c\right]  t^{m}}},bt^{n}\right)  +\omega\left(  \underbrace{\left[
+bt^{n},ct^{m}\right]  }_{=\left[  b,c\right]  t^{n+m}},a\right) \\
+&  =\omega\left(  \left[  a,b\right]  t^{n},ct^{m}\right)  +\underbrace{\omega
+\left(  -\left[  a,c\right]  t^{m},bt^{n}\right)  }_{=\omega\left(
+bt^{n},\left[  a,c\right]  t^{m}\right)  }+\underbrace{\omega\left(  \left[
+b,c\right]  t^{n+m},a\right)  }_{\substack{=0\\\text{(by
+(\ref{thm.H^2(gtt).pf.1}))}}}\\
+&  =\omega\left(  \left[  a,b\right]  t^{n},ct^{m}\right)  +\omega\left(
+bt^{n},\left[  a,c\right]  t^{m}\right)  \ \ \ \ \ \ \ \ \ \ \text{for all
+}a,b,c\in\mathfrak{g}\text{.}%
+\end{align*}
+In other words, the bilinear form on $\mathfrak{g}$ given by $\left(
+b,c\right)  \mapsto\omega\left(  bt^{n},ct^{m}\right)  $ is $\mathfrak{g}%
+$-invariant. But every $\mathfrak{g}$-invariant bilinear form on
+$\mathfrak{g}$ must be a multiple of our bilinear form $\left(  \cdot
+,\cdot\right)  $ (since $\mathfrak{g}$ is simple, and thus the space of all
+$\mathfrak{g}$-invariant bilinear forms on $\mathfrak{g}$ is $1$%
+-dimensional\footnote{and spanned by the Killing form}). Hence, there exists
+some constant $\gamma_{n,m}\in\mathbb{C}$ (depending on $n$ and $m$) such
+that
+\begin{equation}
+\omega\left(  bt^{n},ct^{m}\right)  =\gamma_{n,m}\cdot\left(  b,c\right)
+\ \ \ \ \ \ \ \ \ \ \text{for all }b,c\in\mathfrak{g}.
+\label{thm.H^2(gtt).pf.2}%
+\end{equation}
+It is easy to see that%
+\begin{equation}
+\gamma_{n,m}=-\gamma_{m,n}\ \ \ \ \ \ \ \ \ \ \text{for all }n,m\in\mathbb{Z},
+\label{thm.H^2(gtt).pf.3}%
+\end{equation}
+since the bilinear form $\omega$ is skew-symmetric whereas the bilinear form
+$\left(  \cdot,\cdot\right)  $ is symmetric.
+
+Now, for any $m\in\mathbb{Z}$, $n\in\mathbb{Z}$ and $p\in\mathbb{Z}$, the
+$2$-cocycle condition yields%
+\[
+\omega\left(  \left[  at^{n},bt^{m}\right]  ,ct^{p}\right)  +\omega\left(
+\left[  bt^{m},ct^{p}\right]  ,at^{n}\right)  +\omega\left(  \left[
+ct^{p},at^{n}\right]  ,bt^{m}\right)  =0\ \ \ \ \ \ \ \ \ \ \text{for all
+}a,b,c\in\mathfrak{g}.
+\]
+Due to%
+\[
+\omega\left(  \underbrace{\left[  at^{n},bt^{m}\right]  }_{=\left[
+a,b\right]  t^{n+m}},ct^{p}\right)  =\omega\left(  \left[  a,b\right]
+t^{n+m},ct^{p}\right)  =\gamma_{n+m,p}\cdot\left(  \left[  a,b\right]
+,c\right)  \ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{thm.H^2(gtt).pf.2}%
+)}\right)
+\]
+and the two cyclic permutations of this identity, this rewrites as%
+\[
+\gamma_{n+m,p}\cdot\left(  \left[  a,b\right]  ,c\right)  +\gamma_{m+p,n}%
+\cdot\left(  \left[  b,c\right]  ,a\right)  +\gamma_{p+n,m}\cdot\left(
+\left[  c,a\right]  ,b\right)  =0.
+\]
+Since this holds for all $a,b,c\in\mathfrak{g}$, we can use
+(\ref{thm.H^2(gtt).pf.00}) to transform this into%
+\[
+\gamma_{n+m,p}+\gamma_{m+p,n}+\gamma_{p+n,m}=0.
+\]
+Due to (\ref{thm.H^2(gtt).pf.3}), this rewrites as%
+\[
+\gamma_{n,m+p}+\gamma_{m,p+n}+\gamma_{p,m+n}=0.
+\]
+Denoting by $s$ the sum $m+n+p$, we can rewrite this as%
+\[
+\gamma_{n,s-n}+\gamma_{m,s-m}-\gamma_{m+n,s-m-n}=0.
+\]
+In other words, for fixed $s\in\mathbb{Z}$, the function $\mathbb{Z}%
+\rightarrow\mathbb{C},$ $n\mapsto\gamma_{n,s-n}$ is additive. Hence,
+$\gamma_{n,s-n}=n\gamma_{1,s-1}$ and $\gamma_{s-n,n}=\left(  s-n\right)
+\gamma_{1,s-1}$ for every $n\in\mathbb{Z}$. Thus,
+\begin{align*}
+\left(  s-n\right)  \gamma_{1,s-1}  &  =\gamma_{s-n,n}=-\gamma_{n,s-n}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by (\ref{thm.H^2(gtt).pf.3})}\right) \\
+&  =-n\gamma_{1,s-1}\ \ \ \ \ \ \ \ \ \ \text{for every }n\in\mathbb{Z}%
+\end{align*}
+Hence, $s\gamma_{1,s-1}=0$. Thus, for every $s\neq0$, we conclude that
+$\gamma_{1,s-1}=0$ and hence $\gamma_{n,s-n}=n\underbrace{\gamma_{1,s-1}}%
+_{=0}=0$ for every $n\in\mathbb{Z}$. In other words, $\gamma_{n,m}=0$ for
+every $n\in\mathbb{Z}$ and $m\in\mathbb{Z}$ satisfying $n+m\neq0$.
+
+What happens for $s=0$ ? For $s=0$, the equation $\gamma_{n,s-n}%
+=n\gamma_{1,s-1}$ becomes $\gamma_{n,-n}=n\gamma_{1,-1}$.
+
+Thus we have proven that $\gamma_{n,m}=0$ for every $n\in\mathbb{Z}$ and
+$m\in\mathbb{Z}$ satisfying $n+m\neq0$, and that every $n\in\mathbb{Z}$
+satisfies $\gamma_{n,-n}=n\gamma_{1,-1}$.
+
+Hence, the form $\omega$ must be a scalar multiple of the form which sends
+every $\left(  f,g\right)  $ to $\operatorname*{Res}\nolimits_{t=0}%
+\underbrace{\left(  df,g\right)  }_{\text{scalar-valued }1\text{-form}}%
+=\sum\limits_{i\in\mathbb{Z}}i\left(  f_{i},g_{-i}\right)  $. We have thus
+proven that every $2$-cocycle $\omega$ is a scalar multiple of the $2$-cocycle
+$\omega$ defined by (\ref{loop.w}) modulo the $2$-coboundaries. Since we also
+know that the $2$-cocycle $\omega$ defined by (\ref{loop.w}) is not a
+$2$-coboundary, this yields that the space $H^{2}\left(  \mathfrak{g}\left[
+t,t^{-1}\right]  \right)  $ is $1$-dimensional and spanned by the residue
+class of the $2$-cocycle $\omega$ defined by (\ref{loop.w}). This proves
+Theorem \ref{thm.H^2(gtt)}.
+
+\end{document}

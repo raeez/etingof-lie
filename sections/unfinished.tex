@@ -1,0 +1,256 @@
+\documentclass[etingof-lie.tex]{subfiles}
+\begin{document}
+\subsection{\textbf{[unfinished]} ...}
+
+[...]
+\section{\textbf{[unfinished]} ...}
+
+[...] [747l22.pdf]
+
+KZ equations, consistent (define a flat connection)
+
+$\mathfrak{g}$ simple Lie algebra
+
+$V_{1},V_{2},...,V_{N}$ representations of $\mathfrak{g}$ from Category
+$\mathcal{O}$.
+
+$\mathbb{C}_{0}^{N}=\mathbb{C}^{N}\diagdown\left\{  z_{i}=z_{j}\right\}  $
+
+$U\subseteq\mathbb{C}_{0}^{N}$ simply connected open set
+
+$F\left(  z_{1},...,z_{N}\right)  \in\left(  V_{1}\otimes V_{2}\otimes
+...\otimes V_{N}\right)  \left[  \nu\right]  $ holomorphic function in
+$z_{1},...,z_{N}$ for a fixed weight $\nu$.
+
+$x\in\mathbb{C}$ [or was it $\kappa\in\mathbb{C}$ ?]
+
+$\dfrac{\partial F}{\partial z_{i}}-\overline{h}\sum\limits_{i\neq j}%
+\dfrac{\Omega_{i,j}}{z_{i}-z_{j}}F$ where $\Omega_{i,j}:V_{1}\otimes
+V_{2}\otimes...\otimes V_{N}\rightarrow V_{1}\otimes V_{2}\otimes...\otimes
+V_{N}$
+
+$\Omega\in\left(  S^{2}\mathfrak{g}\right)  ^{\mathfrak{g}}$
+
+Consistent means: setting $\nabla_{i}=\dfrac{\partial}{\partial z_{i}%
+}-\overline{h}\sum\limits_{i\neq j}\dfrac{\Omega_{i,j}}{z_{i}-z_{j}}$, we have
+$\left[  \nabla_{i},\nabla_{j}\right]  =0$. Consistent systems are known to
+have locally unique-and-existent solutions.
+
+Why is this in our course?
+
+The reason is that these equations arise in the representation theory of
+affine Lie algebras.
+
+Interpretation of KZ equations in terms of $\widehat{\mathfrak{g}}$:
+
+Consider $L\mathfrak{g}$, $\widehat{\mathfrak{g}}$, $\widetilde{\mathfrak{g}%
+}=\widehat{\mathfrak{g}}\rtimes\mathbb{C}d$.
+
+Define Weyl modules:
+
+\begin{definition}
+Let $\lambda\in P_{+}$ be a dominant integral weight for a simple
+finite-dimensional Lie algebra $\mathfrak{g}$. Let $L_{\lambda}$ be an
+irreducible finite-dimensional representation of $\mathfrak{g}$ with highest
+weight $\lambda$. Let us extend $L_{\lambda}$ to a $\mathfrak{g}\left[
+t\right]  \oplus\mathbb{C}K$-module by making $t\mathfrak{g}\left[  t\right]
+$ act by $0$ and $K$ act by some scalar $k$ (that is, $K\mid_{L_{\lambda}%
+}=k\cdot\operatorname*{id}$ for some $k\in\mathbb{C}$).
+
+Denote this $\mathfrak{g}\left[  t\right]  \oplus\mathbb{C}K$-module by
+$L_{\lambda}^{\left(  k\right)  }$. Then, we define a $\widehat{\mathfrak{g}}%
+$-module $V_{\lambda,k}=U\left(  \widehat{\mathfrak{g}}\right)  \otimes
+_{U\left(  \mathfrak{g}\left[  t\right]  \oplus\mathbb{C}K\right)  }%
+L_{\lambda}^{\left(  k\right)  }$. This module is called a \textit{Weyl
+module} for $\widehat{\mathfrak{g}}$ at level $k$.
+\end{definition}
+
+By the PBW theorem, we immediately see that $U\left(  \widehat{\mathfrak{g}%
+}\right)  \cong U\left(  t^{-1}\mathfrak{g}\left[  t^{-1}\right]  \right)
+\otimes U\left(  \mathfrak{g}\left[  t\right]  \oplus\mathbb{C}K\right)  $ and
+thus $V_{\lambda,k}\cong U\left(  t^{-1}\mathfrak{g}\left[  t^{-1}\right]
+\right)  \otimes L_{\lambda}$ (canonically, but only as vector spaces).
+
+Assuming that $k\neq-h^{\vee}$, we can extend $V_{\lambda,k}$ to
+$\widetilde{\mathfrak{g}}$ by letting $d$ act as $-L_{0}$ (from Sugawara construction).
+
+\begin{definition}
+If $V$ is a $\mathfrak{g}$-module, then $V\left[  z,z^{-1}\right]  $ is an
+$L\mathfrak{g}$-module, and in fact a $\widehat{\mathfrak{g}}$-module where
+$K$ acts by $0$. It extends to $\widetilde{\mathfrak{g}}$ by setting
+$d=z\dfrac{\partial}{\partial z}$.
+
+More generally: Can set $d\left(  vz^{n}\right)  =\left(  n-\Delta\right)
+vz^{n}$ for any fixed $\Delta\in\mathbb{C}$.
+
+Call this module $z^{-\Delta}V\left[  z,z^{-1}\right]  $.
+\end{definition}
+
+\begin{lemma}
+If $k\notin\mathbb{Q}$, then $V_{\lambda,k}$ is irreducible.
+\end{lemma}
+
+\textit{Proof of Lemma.} Assume $V_{\lambda,k}$ is reducible. This
+$V_{\lambda,k}$ is a highest-weight module. So, it must have a singular vector
+in degree $\ell>0$. Let $C$ be the Casimir for $\widetilde{\mathfrak{g}}$. We
+know $C=L_{0}-\deg$ (where $\deg$ returns the positive degree).
+
+Assume that $w$ (our singular vector) lives in an irr. repr. of $\mathfrak{g}%
+$. Singular vector means $a\left(  m\right)  w=0$ for all $m>0$. Here
+$a\left(  m\right)  $ means $at^{m}$.
+
+$C\mid_{V_{\lambda,k}}=\dfrac{\left(  \lambda,\lambda+2\rho\right)  }{2\left(
+k+h^{\vee}\right)  }$
+
+$Cw=\left(  \dfrac{\left(  \mu,\mu+2\rho\right)  }{2\left(  k+h^{\vee}\right)
+}-\ell\right)  w$
+
+$L_{0}=\dfrac{1}{2\left(  k+h^{\vee}\right)  }\sum_{i\in\mathbb{Z}}\sum_{a\in
+B}:a\left(  i\right)  a\left(  -i\right)  :\ =\dfrac{1}{2\left(  k+h^{\vee
+}\right)  }\left(  \sum_{a\in B}a\left(  0\right)  ^{2}+2\sum_{a\in B}%
+\sum_{m\geq1}a\left(  -m\right)  a\left(  m\right)  \right)  $ where $a\left(
+m\right)  =at^{m}$.
+
+$\Longrightarrow$ $\underbrace{\left(  \lambda,\lambda+2\rho\right)  =\left(
+\mu,\mu+2\rho\right)  }_{\in\mathbb{Z}}-2\ell\left(  k+h^{\vee}\right)  $
+$\Longrightarrow$ $k=-h^{\vee}+\dfrac{\left(  \lambda,\lambda+2\rho\right)
+-\left(  \mu,\mu+2\rho\right)  }{2\ell}\in\mathbb{Q}$. $\Longrightarrow$ contradiction.
+
+\begin{corollary}
+If $k\notin\mathbb{Q}$, then $V_{\lambda,k}^{\ast}$ (restricted dual) is
+$U\left(  \widehat{\mathfrak{g}}\right)  \otimes_{U\left(  \mathfrak{g}\left[
+t^{-1}\right]  \oplus\mathbb{C}K\right)  }L_{\lambda}^{\ast\left(  -k\right)
+}$. (Here, $L_{\lambda}^{\ast\left(  -k\right)  }$ means $L_{\lambda}^{\ast}$
+with $K$ acting as $-k$.)
+\end{corollary}
+
+\textit{Proof of Corollary.} From Frobenius reciprocity, we have a
+homomorphism $\varphi:U\left(  \widehat{\mathfrak{g}}\right)  \otimes
+_{U\left(  \mathfrak{g}\left[  t^{-1}\right]  \oplus\mathbb{C}K\right)
+}L_{\lambda}^{\ast\left(  -k\right)  }\rightarrow V_{\lambda,k}^{\ast}$ which
+is $\operatorname*{id}$ in degree $0$. In fact, Frobenius reciprocity tells us
+that%
+\[
+\operatorname*{Hom}\nolimits_{\widehat{\mathfrak{g}}}\left(  U\left(
+\widehat{\mathfrak{g}}\right)  \otimes_{U\left(  \mathfrak{g}\left[
+t^{-1}\right]  \oplus\mathbb{C}K\right)  }L_{\lambda}^{\ast\left(  -k\right)
+},M\right)  \cong\operatorname*{Hom}\nolimits_{\mathfrak{g}\left[
+t^{-1}\right]  \oplus\mathbb{C}K}\left(  L_{\lambda}^{\ast\left(  -k\right)
+},M\right)  ,
+\]
+which, in the case $M=V_{\lambda,k}^{\ast}$, becomes [...].
+
+Because $V_{\lambda,k}$ is irreducible (here we are using $k\notin\mathbb{Q}%
+$), $V_{\lambda,k}^{\ast}$ is irreducible as well, this homomorphism $\varphi$
+is surjective. This $\varphi$ also preserves grading, and the characters are
+equal. $\Longrightarrow$ $\varphi$ is an isomorphism.
+
+\begin{corollary}
+$\operatorname*{Hom}\nolimits_{\widetilde{\mathfrak{g}}}\left(  V_{\lambda
+,k}\otimes V_{\nu,k}^{\ast},z^{-\Delta}V\left[  z,z^{-1}\right]  \right)
+\cong\operatorname*{Hom}\nolimits_{\mathfrak{g}}\left(  L_{\lambda}\otimes
+L_{\nu}^{\ast},V\right)  $ if $\Delta=\Delta\left(  \lambda\right)
+-\Delta\left(  \nu\right)  $.
+\end{corollary}
+
+\textit{Proof of Corollary.} Frobenius reciprocity as for the previous
+corollary. (Skip.)
+
+[...]
+
+We now cite a classical theorem on ODEs.
+
+\begin{theorem}
+Let $N\in\mathbb{N}$. Let $A\left(  z\right)  =A_{0}+A_{1}z+A_{2}z^{2}+...$ be
+a holomorphic function on $\left\{  z\in\mathbb{C}\ \mid\ \left\vert
+z\right\vert <1\right\}  $ with values in $\operatorname*{M}\nolimits_{N}%
+\left(  \mathbb{C}\right)  $. Assume that for any eigenvalues $\lambda$ and
+$\mu$ of $A_{0}$ such that $\lambda\neq\mu$, one has $\lambda-\mu
+\notin\mathbb{Z}$. Then, the ODE $z\dfrac{dF}{dz}=A\left(  z\right)  F$
+(which, of course, is equivalent to $\dfrac{dF}{dz}=\dfrac{A\left(  z\right)
+}{z}F$) has a matrix solution of the form $F\left(  z\right)  =\left(
+1+B_{1}z+B_{2}z^{2}+...\right)  z^{A_{0}}$ such that the power series
+$1+B_{1}z+B_{2}z^{2}+...$ converges for $\left\vert z\right\vert <1$. Here,
+$z^{A_{0}}$ means $\exp\left(  A_{0}\log z\right)  $ (on $\mathbb{C}%
+\diagdown\mathbb{R}_{\leq0}$).
+\end{theorem}
+
+\begin{remark}
+This is a development of the following basic theorem: If we are given an ODE
+$\dfrac{dF}{dz}=C\left(  z\right)  F$ with $C\left(  z\right)  $ holomorphic,
+then there exists a holomorphic $F$ satisfying this equation and having the
+form $F=1+O\left(  z\right)  $ (the so-called fundamental equation).
+\end{remark}
+
+\textit{Proof of Theorem.} Plug in the solution $F\left(  z\right)  $ in the
+above formula:%
+\[
+\left(  \sum\limits_{n\geq1}nB_{n}z^{n}\right)  z^{A_{0}}+\left(
+1+\sum\limits_{n\geq1}B_{n}z^{n}\right)  A_{0}z^{A_{0}}=\left(  A_{0}%
++A_{1}z+A_{2}z^{2}+...\right)  \left(  1+B_{1}z+B_{2}z^{2}+...\right)
+z^{A_{0}}.
+\]
+Cancel $z^{A_{0}}$ from this to obtain%
+\[
+\sum\limits_{n\geq1}nB_{n}z^{n}+\left(  1+\sum\limits_{n\geq1}B_{n}%
+z^{n}\right)  A_{0}=\left(  A_{0}+A_{1}z+A_{2}z^{2}+...\right)  \left(
+1+B_{1}z+B_{2}z^{2}+...\right)  .
+\]
+This is the system of recursive equations%
+\[
+nB_{n}-A_{0}B_{n}+B_{n}A_{0}=A_{1}B_{n-1}+A_{2}B_{n-2}+...+A_{n-1}B_{1}%
++A_{n}.
+\]
+This rewrites as%
+\[
+\left(  n-\operatorname*{ad}A_{0}\right)  \left(  B_{n}\right)  =A_{1}%
+B_{n-1}+A_{2}B_{n-2}+...+A_{n-1}B_{1}+A_{n}.
+\]
+The operator $n-\operatorname*{ad}A_{0}:\operatorname*{M}\nolimits_{N}\left(
+\mathbb{C}\right)  \rightarrow\operatorname*{M}\nolimits_{N}\left(
+\mathbb{C}\right)  $ is invertible (because eigenvalues of this operator are
+$n-\left(  \lambda-\mu\right)  $ for $\lambda$ and $\mu$ being eigenvalues of
+$A_{0}$, and because of the condition that for any eigenvalues $\lambda$ and
+$\mu$ of $A_{0}$ such that $\lambda\neq\mu$, one has $\lambda-\mu
+\notin\mathbb{Z}$). Hence, we can use the above equation to recursively
+compute $B_{n}$ for all $n$.
+
+This implies that a solution in the formal sense exists.
+
+We also need to estimate radius of convergence. [...]
+
+The following generalizes our theorem to several variables:
+
+\begin{theorem}
+Let $m\in\mathbb{N}$ and $N\in\mathbb{N}$. For every $i\in\left\{
+1,2,...,m\right\}  $, let $A_{i}\left(  \xi_{1},\xi_{2},...,\xi_{m}\right)  $
+be a holomorphic on $\left\{  \left(  \xi_{1},\xi_{2},...,\xi_{m}\right)
+\ \mid\ \left\vert \xi_{j}\right\vert <1\text{ for all }j\right\}  $ with
+values in $\operatorname*{M}\nolimits_{N}\left(  \mathbb{C}\right)  $.
+Consider the system of differential equations $\xi_{i}\dfrac{dF}{d\xi_{i}%
+}=A_{i}\left(  \xi\right)  F$ for all $i\in\left\{  1,2,...,m\right\}  $ on a
+single function $F:\mathbb{C}^{m}\rightarrow\operatorname*{M}\nolimits_{N}%
+\left(  \mathbb{C}\right)  $. Assume
+\[
+\left[  \xi_{i}\dfrac{d}{d\xi_{i}}-A_{i},\xi_{j}\dfrac{d}{d\xi_{j}}%
+-A_{j}\right]  =0\ \ \ \ \ \ \ \ \ \ \text{for all }i,j\in\left\{
+1,2,...,m\right\}
+\]
+(this is called a \textit{consistency condition}, aka a zero curvature
+equation). Then, $\left[  A_{i}\left(  0\right)  ,A_{j}\left(  0\right)
+\right]  =0$ for all $i,j\in\left\{  1,2,...,m\right\}  $, and thus the
+matrices $A_{i}\left(  0\right)  $ for all $i$ can be simultaneously
+trigonalized. Under this trigonalization, let $\lambda_{i,1}$, $\lambda_{i,2}%
+$, $...$, $\lambda_{i,N}$ be the diagonal entries of $A_{i}\left(  0\right)  $.
+
+Assume that the condition
+\[
+\left(  \lambda_{1,k}-\lambda_{1,\ell},\lambda_{2,k}-\lambda_{2,\ell
+},...,\lambda_{m,k}-\lambda_{m,\ell}\right)  \notin\mathbb{Z}^{m}\diagdown0
+\]
+holds for all $k$ and $\ell$. [...]
+\end{theorem}
+
+
+
+\end{document}

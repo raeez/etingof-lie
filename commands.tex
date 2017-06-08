@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Formatting / Display %%
+%%
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\numberwithin{equation}{section}
+% TODO understand what this does
+% (something like number equations within sections)
+
+%%%%%%%%%%%%%%
+%% graphics %%
+%%
+%% TODO https://www.sharelatex.com/learn/Inserting_Images
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{graphics/}{../graphics/}} % relative to both / and sections/
+
+\newcommand\image[1]{
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=.5]{#1}
+    \label{fig-#1}
+  \end{figure}
+}
+\newcommand\imageopt[3]{ % \imageopt #1-filename #2-scale #3-caption
+  \begin{figure}[H]
+    \centering
+    \ifstrequal{#2}{}{%if no scale provided
+      \includegraphics{#1}}{ % don't set the scale
+      }{\includegraphics[scale=#2]{#1}} % otherwise do
+    \label{fig:#1}
+    \ifstrequal{#3}{}{%if no caption provided
+      }{ % don't try to set one
+      }{\caption{#3}} % otherwise do
+  \end{figure}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TODO learn correct usage of tikz
+%% tikz
+ \usepackage{tikz-cd}
+%% Functions
+%% \begin{tikzcd}[column sep= small,row sep=0ex]
+%%     M_f \colon \pi_1(S \smallsetminus \{y_1, \dots, y_n\}, y) \arrow[r]& \Bij(f^{-1}(y)) \\
+%%    \gamma \arrow[r, mapsto]                                   & M_f(\gamma) = \sigma_{\gamma}^{-1}
+%% \end{tikzcd}
+%%
+%% \begin{align*}
+%%   M_f \colon \pi_1(S \smallsetminus \{y_1, \dots, y_n\}, y) & \longrightarrow \Bij(f^{-1}(y)) \\
+%%   \gamma & \longmapsto M_f(\gamma) = \sigma_\gamma^{-1}
+%% \end{align*}
+%%
+%% Or this:\medskip
+%%
+%% Let $ S' =S \smallsetminus \{y_1, \dots, y_n\} $. Define
+%% $ \begin{aligned}[t]
+%% M_f \colon \pi_1(S', y) &\longrightarrow \Bij(f^{-1}(y)) \\
+%% \gamma &\longmapsto M_f(\gamma) = \sigma_\gamma^{-1}
+%% \end{aligned} $
+
+
+%%%%%%%%%%%%%
+%% urls/links
+% \usepackage{hyperref}
+
+% examples
+% c.f. \hyperref[mainlemma1]{lemma \ref*{mainlemma} }.
+% take a look at my website \url{http://raeez.com}
+% it never hurts to \href{http://wiki.org/RTFM}{RTFM}
+% I can be reached at
+% \href{mailto:this_is_a_false_addr@raeez.com}{this\_is\_a\_false\_addr@raeez.com}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Theorem Environments %%
+%%
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\theoremstyle{remark}
+\newtheorem{rmk}[thm]{Remark}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exc}[thm]{Exercise}
+\newtheorem{conj}[thm]{Conjecture}
+
+%%%%%%%%%%%%%%%%%%
+%% Nomenclature %%
+%%
+%% TODO figure out better solution
+%% https://tex.stackexchange.com/questions/361373/nomenclature-entry-in-toc-not-indented-like-a-chapter/361376
+\usepackage[intoc]{nomencl}
+\makenomenclature
+\usepackage{xpatch}
+\xpatchcmd{\thenomenclature}{\addcontentsline}{\addxcontentsline}{}{}
+\xpatchcmd{\thenomenclature}{\addcontentsline}{\addxcontentsline}{}{}
+\KOMAoptions{toc=indentunnumbered}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Modify nomenclature generation %%
+%% 1. SI Units
+%% 2. titled groups
+%% 3. enforce manual order
+
+%% 1. Enable SI units
+%% \usepackage{siunitx}
+%% \sisetup{
+%% inter-unit-product=\ensuremath{{}\cdot{}},
+%% per-mode=symbol
+%% }
+%% \nc{\nomunit}[1]{\rc{\nomentryend}{\hspace*{\fill}#1}}
+
+%% c.f. https://tex.stackexchange.com/questions/118114/commands-that-may-take-a-variable-number-of-arguments
+
+
+%% 2. titled groups
+\usepackage{etoolbox}
+\usepackage{ifthen} % one route to argument overloading
+
+%% TODO 3. manual ordering
+
+%% TODO why is % often used before a newline?
+
+%% TIP wrap long descriptions in a \parbox e.g.
+%% \nm[x]{$x$}{\parbox[t]{.75\textwidth}{Unknown variable with a very very
+%% very very very very very very long description}\nomunit{\si{\second}}}
+
+%% The following implements grouping in the nomenclature preamble
+%% c.f. 1. https://tex.stackexchange.com/questions/166556/how-to-make-a-clean-and-grouped-nomenclature-list
+%%      2. https://tex.stackexchange.com/questions/310128/grouped-nomenclature
+%%      3. https://tex.stackexchange.com/questions/318850/grouping-nomenclature-elements
+%%      4. https://www.sharelatex.com/learn/Nomenclatures
+
+%% \begin{document}
+%% \mbox{}
+%%
+%% \nm[A, 02]{$c$}{Speed of light in a vacuum inertial system}
+%% \nm[A, 03]{$h$}{Plank Constant}
+%% \nm[A, 01]{$g$}{Gravitational Constant}
+%% \nm[B, 03]{$\mathbb{R}$}{Real Numbers}
+%% \nm[B, 02]{$\mathbb{C}$}{Complex Numbers}
+%% \nm[B, 01]{$\mathbb{H}$}{Octonions}
+%% \nm[C]{$V$}{Constant Volume}
+%% \nm[C]{$\rho$}{Friction Index}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%% Markup Readability %%
+%%
+%% macros
+\newcommand\nc{\newcommand}
+\newcommand\rc{\renewcommand}
+
+%% nomenclature
+\newcommand\nm{\nomenclature}
+\newcommand\mathnm[2]{\nm[#1]{#2}}
+
+%% mathematics-symbols
+\newcommand\mc[1]{\mathcal{#1}}
+\newcommand\mbb[1]{\mathbb{#1}}
+\newcommand\mbf[1]{\mathbf{#1}}
+
+% mathematics-algebra extensions
+\nc\lb{\left[} \nc\rb{\right]}
+\nc\llb{\lb\lb} \nc\rrb{\rb\rb}
+\nc\lp{\left(} \nc\llp{\lp\lp}
+\nc\rp{\right)} \nc\rrp{\lp\lp}
