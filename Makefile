@@ -17,7 +17,8 @@ VIEWPDF    :=open -a $(PDFVIEWER)
 VIEWHTML   :=open -a $(HTMLVIEWER)
 
 # -- target dirs for generated html/pdf files
-INSTALLDIR :=$(PROJ)/www/raeez.com/notes/wip
+INSTALLURL :=notes/wip
+INSTALLDIR :=$(PROJ)/www/raeez.com/$(INSTALLURL)
 OUTDIR:=out
 
 # -- pdf config
@@ -36,6 +37,10 @@ BUILDHTML  :=pdf2htmlex $(HTMLFLAGS)
 
 PDF2HTMLEXJSFILENAME :=pdf2htmlEX.min.js
 GOOGLEANALYTICSID    :=UA-8883032-10
+define STATICPDFHTML
+<head><meta charset="utf-8"><meta name="Description" content="silliness" /><title>Raeez Lorgat</title><meta name="author" content="Raeez Lorgat"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="google-site-verification" content="WfuYCzFoftKafLhmWLqacdDaXEsU4EKbRyZnEwLFxQw" /><link rel="stylesheet" href="scale.css"><!--<script src="jquery-2.1.0.min.js"></script>--><script src="modernizr-2.0.6.min.js"></script><meta http-equiv="refresh" content="0; url=http://raeez.com/$(INSTALLURL)/$(TEXMAIN)/$(TEXMAIN).pdf" /> </head>
+endef
+
 define STATICJAVASCRIPT
 (function(){/*
  https://github.com/coolwanglu/pdf2htmlEX/blob/master/share/LICENSE
@@ -165,15 +170,16 @@ install: install-pdf install-html install-tar
 
 install-pdf:
 	-$(MKDIR) $(INSTALLDIR)/$(TEXMAIN)
-	-cd $(INSTALLDIR)/$(TEXMAIN); $(KILL) *.pdf; cd -
-	cd $(OUTDIR); $(CP) $(TEXMAIN).pdf $(INSTALLDIR)/$(TEXMAIN)/; cd -
-	cd $(PROJ)/www/raeez.com; make update-mathematica
+	-$(CD) $(INSTALLDIR)/$(TEXMAIN); $(KILL) *.pdf; cd -
+	$(CD) $(OUTDIR); $(CP) $(TEXMAIN).pdf $(INSTALLDIR)/$(TEXMAIN)/; cd -
+	$(ECHO) '$(STATICPDFHTML)' >> $(INSTALLDIR)/$(TEXMAIN)/$(TEXMAIN).pdf.html
+	$(CD) $(PROJ)/www/raeez.com; make update-mathematica
 
 install-html:
 	-$(MKDIR) $(INSTALLDIR)/$(TEXMAIN)
-	-cd $(INSTALLDIR)/$(TEXMAIN); $(KILL) *.css *.js *.png *.js; cd -
-	cd $(OUTDIR); $(CP) *.html *.css *.js *.png $(INSTALLDIR)/$(TEXMAIN)/; cd -
-	cd $(PROJ)/www/raeez.com; make update-mathematica
+	-$(CD) $(INSTALLDIR)/$(TEXMAIN); $(KILL) *.css *.js *.png *.js; cd -
+	$(CD) $(OUTDIR); $(CP) *.html *.css *.js *.png $(INSTALLDIR)/$(TEXMAIN)/; cd -
+	$(CD) $(PROJ)/www/raeez.com; make update-mathematica
 
 # ----------------------------------------------------------------------------
 # -- clean
