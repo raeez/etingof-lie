@@ -172,7 +172,7 @@ install-pdf:
 	-$(MKDIR) $(INSTALLDIR)/$(TEXMAIN)
 	-$(CD) $(INSTALLDIR)/$(TEXMAIN); $(KILL) *.pdf; cd -
 	$(CD) $(OUTDIR); $(CP) $(TEXMAIN).pdf $(INSTALLDIR)/$(TEXMAIN)/; cd -
-	$(ECHO) '$(STATICPDFHTML)' >> $(INSTALLDIR)/$(TEXMAIN)/$(TEXMAIN).pdf.html
+	$(ECHO) '$(STATICPDFHTML)' > $(INSTALLDIR)/$(TEXMAIN)/$(TEXMAIN).pdf.html
 	$(CD) $(PROJ)/www/raeez.com; make update-mathematica
 
 install-html:
